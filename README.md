@@ -30,4 +30,10 @@ invoke all of them...
             Configure.With("your path").Order(typeof(YourEvent),list of ordered subscribers);
 3- At any time(run time) you can easily Unsubscriber any event subscribers
             new MyEventSubscriber().ReluctanceTo(typeof(MyDomainEvent));
+            
+-----------------------------------------------------
+Mr Udi Dahan :) Thank you very much 
+I use some idea behind NServiceBus...
+
+This is the first version of Chakad.Pipeline4Monolith, and It is under work for future improvment.
 So bu tune...
