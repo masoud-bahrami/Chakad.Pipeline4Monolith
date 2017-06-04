@@ -49,7 +49,9 @@ I use some idea behind NServiceBus...
 
 I thank my valuable colleagues at http://BaridSoft.Ir , I have learned some ideas in the resulting section from theirs
 
-And I shuld say, the core idea of the Chakad.Pipeline4Monolith were be implemented by Mahyar(one of my colleagues) and me,
-So I thank Mahyar a lot
-This is the first version of Chakad.Pipeline4Monolith, and It is under work for future improvment.
+And I shuld say, the core idea of the Chakad.Pipeline4Monolith is implemented by me and Mahyar(one of my colleagues),
+So I thanks Mahyar a lot.
+
+This is the first version of Chakad.Pipeline4Monolith, and It is under the work for future improvments.
+
 So bu tune...
