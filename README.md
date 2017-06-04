@@ -21,7 +21,13 @@ Task<TOut> Send<TOut>(IRequest<TOut> command, TimeSpan? timeout = null,
             
 Chakad.Pipeline() get your command, resolve its handler and invoke execute methods, and then return command result to you.
 
-Plus, you can publish event using Chakad.Pipeline4Monolith,so if ther is any subscriber for this event, Chakad.Pipeline4Monolith
+Plus, you can publish event using the Chakad.Pipeline4Monolith,so if ther is any subscriber for this event, Chakad.Pipeline4Monolith
 invoke all of them...
 
+1- First of you should configure the Chakad.Pipeline4Monolith
+            Configure.With("your path");
+2- For event subscribers you can specify the orders for invoking subscribers:
+            Configure.With("your path").Order(typeof(YourEvent),list of ordered subscribers);
+3- At any time(run time) you can easily Unsubscriber any event subscribers
+            new MyEventSubscriber().ReluctanceTo(typeof(MyDomainEvent));
 So bu tune...
