@@ -135,7 +135,7 @@ namespace Chakad.Pipeline
             if (handler == null || !handler.IsGenericType) return;
 
             var genericArguments = handler.GetGenericArguments()
-                .ToList().FirstOrDefault(type1 => type1.IsImplementInterface(typeof(IRequest)));
+                .ToList().FirstOrDefault(type1 => type1.IsImplementInterface(typeof(IChakadRequest)));
 
             if (genericArguments != null)
                 _messageHandlersRepository[genericArguments] = type;

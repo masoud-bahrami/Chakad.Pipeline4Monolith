@@ -5,7 +5,7 @@ namespace Chakad.Pipeline.Core.Query
     {
     }
 
-    public class SingleQuery<TOut> : ISingleQuery<TOut> 
+    public class ChakadQuery<TOut> : ISingleQuery<TOut> 
         where TOut : ISingleQueryResult
     {
     }

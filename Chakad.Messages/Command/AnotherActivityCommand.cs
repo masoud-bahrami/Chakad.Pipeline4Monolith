@@ -6,7 +6,7 @@ using Microsoft.Build.Framework;
 
 namespace Chakad.Messages.Command
 {
-    public class AnotherActivityCommand : Request<AnotherActivityCommandChakadResult>
+    public class AnotherActivityCommand : ChakadRequest<AnotherActivityCommandChakadResult>
     {
         [Required]
         public Guid ActivityId { get; set; }

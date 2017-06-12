@@ -3,11 +3,11 @@ using Chakad.Pipeline.Core.Query;
 
 namespace Chakad.Messages.Query
 {
-    public class GetOutgoingFaxQuery : SingleQuery<GetOutgoingFaxQueryResult>
+    public class GetOutgoingFaxQuery : ChakadQuery<GetOutgoingFaxQueryResult>
     {
         public Guid Id { get; set; }
     }
-    public class GetOutgoingFaxQueryResult : SingleQueryResult<OutgoingFaxResult>
+    public class GetOutgoingFaxQueryResult : ChakadQueryResult<OutgoingFaxResult>
     {
     }
 

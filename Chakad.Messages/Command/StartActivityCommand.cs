@@ -1,12 +1,12 @@
 ﻿using System;
 using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Message;
-using Chakad.Pipeline.Core.MessageHandler;
+
 using Microsoft.Build.Framework;
 
 namespace Chakad.Messages.Command
 {
-    public class StartActivityCommand : Request<StartActivityCommandChakadResult>
+    public class StartActivityCommand : ChakadRequest<StartActivityCommandChakadResult>
     {
         [Required]
         public Guid Id { get; set; }
@@ -19,7 +19,7 @@ namespace Chakad.Messages.Command
         public Guid Id { get; set; }
     }
 
-    public class StartActivityCommand1 : Request<StartActivityCommandChakadResult>
+    public class StartActivityCommand1 : ChakadRequest<StartActivityCommandChakadResult>
     {
         [Required]
         public Guid Id { get; set; }

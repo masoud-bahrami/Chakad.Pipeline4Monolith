@@ -41,7 +41,7 @@ namespace Chakad.Pipeline
             Configure.UnRegister(type1, key);
         }
 
-        public async Task<TOut> Send<TOut>(IRequest<TOut> command, TimeSpan? timeout = null,
+        public async Task<TOut> Send<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
             TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : ChakadResult
         {
 
@@ -78,7 +78,7 @@ namespace Chakad.Pipeline
             throw new ChakadPipelineTimeoutException();
         }
 
-        private static TOut InvokeMessageHandle<TOut>(IRequest<TOut> command, Type eventHandler, object instance)
+        private static TOut InvokeMessageHandle<TOut>(IChakadRequest<TOut> command, Type eventHandler, object instance)
             where TOut : ChakadResult
         {
             var res = (from info in eventHandler.GetMethods()

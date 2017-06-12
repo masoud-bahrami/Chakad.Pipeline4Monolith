@@ -48,16 +48,17 @@
   <ItemGroup>
     <Compile Include="Exceptions\ChakadPipelineTimeoutException.cs" />
     <Compile Include="Query\IBusinessQuery.cs" />
+    <Compile Include="Query\IQuery.cs" />
     <Compile Include="Query\QueryResult.cs" />
-    <Compile Include="Query\SingleQuery.cs" />
-    <Compile Include="Query\SingleQueryResult.cs" />
-    <Compile Include="Query\ListQueryResult.cs" />
+    <Compile Include="Query\ChakadQuery.cs" />
+    <Compile Include="Query\ChakadQueryResult.cs" />
+    <Compile Include="Query\ChakadListQueryResult.cs" />
     <Compile Include="Query\ListQuery.cs" />
     <Compile Include="Options\SubscribeOptions.cs" />
     <Compile Include="Options\UnsubscribeOptions.cs" />
     <Compile Include="Exceptions\ChakadPipelineNotFoundHandler.cs" />
     <Compile Include="MessageHandler\IHandleMessage.cs" />
-    <Compile Include="Command\IRequest.cs" />
+    <Compile Include="Command\IChakadRequest.cs" />
     <Compile Include="MessageHandler\IWantToHandleThisMessage.cs" />
     <Compile Include="Message\IMessageInterface.cs" />
     <Compile Include="Message\IChakadResult.cs" />

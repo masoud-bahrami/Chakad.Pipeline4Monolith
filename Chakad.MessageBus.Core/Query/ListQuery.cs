@@ -3,14 +3,14 @@ using System.Collections.ObjectModel;
 
 namespace Chakad.Pipeline.Core.Query
 {
-    public interface IListQuery<TOut> : IBusinessQuery<TOut> where TOut : IListQueryResult
+    public interface IListQuery<TOut> : IBusinessQuery<TOut> where TOut : IChakadListQueryResult
     {
         int Skip { get; set; }
         int Take { get; set; }
         string SearchText { get; set; }
         ICollection<SortInfo> OrderBy { get; set; }
     }
-    public class ListQuery<TOut> : IListQuery<TOut> where TOut : IListQueryResult
+    public class ListQuery<TOut> : IListQuery<TOut> where TOut : IChakadListQueryResult
     {
         public ListQuery()
         {

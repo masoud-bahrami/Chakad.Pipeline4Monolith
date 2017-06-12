@@ -1,11 +1,10 @@
 ﻿using System;
 using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Message;
-using Chakad.Pipeline.Core.MessageHandler;
 
 namespace Chakad.Messages.Command
 {
-    public class TestCommand : Request<ChakadResult>
+    public class TestCommand : ChakadRequest<ChakadResult>
     {
         public string DocumentName { get; set; }
         public string Note { set; get; }

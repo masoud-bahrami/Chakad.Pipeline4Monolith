@@ -41,7 +41,7 @@ namespace Chakad.Pipeline.Core
         /// </summary>
         /// <param name="command">The message to send.</param>
         /// <param name="options">The options for the send.</param>
-        Task<TOut> Send<TOut>(IRequest<TOut> command, TimeSpan? timeout = null,
+        Task<TOut> Send<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
             TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : ChakadResult;
 
         ///// <summary>
