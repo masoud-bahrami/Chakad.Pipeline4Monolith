@@ -6,16 +6,16 @@ using Chakad.Pipeline.Core.MessageHandler;
 namespace Chakad.MessageHandler.CommandHandlers
 {
     public class AnotherActivityCommand : IWantToHandleThisMessage<Messages.Command.AnotherActivityCommand,
-        AnotherActivityCommandRequestResult>
+        AnotherActivityCommandChakadResult>
     {
-        public override async Task<AnotherActivityCommandRequestResult> Execute(Messages.Command.AnotherActivityCommand message)
+        public override async Task<AnotherActivityCommandChakadResult> Execute(Messages.Command.AnotherActivityCommand message)
         {
             //TODO
             Console.WriteLine("----------------- "+ DateTime.Now + " --------------------");
             Console.WriteLine("AnotherActivityCommand");
             Console.WriteLine("Start Activity id is: " + message.ActivityId + " Start Activity message is " + message.Message);
 
-            return new AnotherActivityCommandRequestResult
+            return new AnotherActivityCommandChakadResult
             {
                 Id = Guid.NewGuid(),
                 Message = "Okay",

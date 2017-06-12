@@ -1,12 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Chakad.Core;
+using Chakad.Pipeline.Core.Command;
+using Chakad.Pipeline.Core.Message;
 
 namespace Chakad.Pipeline.Core.MessageHandler
 {
     public abstract class IWantToHandleThisMessage<T, TOut> :
         MessageHandlerBase<T, TOut>
         where T : class, IRequest<TOut>
-        where TOut : class, IRequestResult, new()
+        where TOut : class, IChakadResult, new()
     {
         private IPipeline _pipeline;
 

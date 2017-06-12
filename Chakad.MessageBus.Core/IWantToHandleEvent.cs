@@ -1,4 +1,6 @@
-﻿namespace Chakad.Pipeline.Core
+﻿using Chakad.Pipeline.Core.Event;
+
+namespace Chakad.Pipeline.Core
 {
     public interface IWantToHandleEvent<in T> : IWantToHandleThisEventInterface where T :
         IDomainEvent

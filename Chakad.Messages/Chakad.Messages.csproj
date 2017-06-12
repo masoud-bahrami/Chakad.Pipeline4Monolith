@@ -46,6 +46,7 @@
     <Compile Include="Command\StartActivityCommand.cs" />
     <Compile Include="Events\MyDomainEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\A.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chakad.MessageBus.Core\Chakad.Pipeline.Core.csproj">

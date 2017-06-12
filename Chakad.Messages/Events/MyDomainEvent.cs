@@ -1,4 +1,5 @@
 ﻿using Chakad.Pipeline.Core;
+using Chakad.Pipeline.Core.Event;
 
 namespace Chakad.Messages.Events
 {

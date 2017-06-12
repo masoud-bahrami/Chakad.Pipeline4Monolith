@@ -1,4 +1,6 @@
-﻿namespace Chakad.Pipeline.Core
+﻿using Chakad.Pipeline.Core.Message;
+
+namespace Chakad.Pipeline.Core.Event
 {
     /// <summary>
     /// Marker interface to indicate that a class is a event message

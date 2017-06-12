@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Chakad.Pipeline.Core.MessageHandler;
-using Chakad.Pipeline.Core.NewFolder1;
+using Chakad.Pipeline.Core.Command;
+using Chakad.Pipeline.Core.Event;
+using Chakad.Pipeline.Core.Message;
+using Chakad.Pipeline.Core.Options;
 
 namespace Chakad.Pipeline.Core
 {
@@ -40,7 +42,7 @@ namespace Chakad.Pipeline.Core
         /// <param name="command">The message to send.</param>
         /// <param name="options">The options for the send.</param>
         Task<TOut> Send<TOut>(IRequest<TOut> command, TimeSpan? timeout = null,
-            TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : RequestResult;
+            TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : ChakadResult;
 
         ///// <summary>
         ///// Sends the provided message.

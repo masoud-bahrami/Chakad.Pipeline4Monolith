@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Chakad.Pipeline.Core.MessageHandler
+namespace Chakad.Pipeline.Core.Message
 {
-    public interface IRequestResult : IMessageInterface
+    public interface IChakadResult : IMessageInterface
     {
         /// <summary>
         /// 
@@ -18,9 +18,9 @@ namespace Chakad.Pipeline.Core.MessageHandler
         Exception  AggregatedExceptions { get; set; }
     }
 
-    public class RequestResult : ChakadMessage, IRequestResult
+    public class ChakadResult : ChakadMessage, IChakadResult
     {
-        public RequestResult()
+        public ChakadResult()
         {
             Succeeded = true;
         }

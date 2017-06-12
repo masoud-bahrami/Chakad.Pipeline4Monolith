@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Chakad.Bootstraper;
 using Chakad.MessageHandler.EventSubscribers;
 using Chakad.Messages.Command;
 using Chakad.Messages.Events;
+using Chakad.Messages.Query;
 using Chakad.Pipeline;
 using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.Exceptions;
@@ -26,6 +26,8 @@ namespace Chakad.Console
             System.Console.ForegroundColor = ConsoleColor.White;
 
             ChakadBootstraper.Run();
+
+            //Pipeline.Send(new GetOutgoingFaxQuery());
 
             System.Console.ForegroundColor = ConsoleColor.Magenta;
             System.Console.WriteLine("Send Activity Command ");

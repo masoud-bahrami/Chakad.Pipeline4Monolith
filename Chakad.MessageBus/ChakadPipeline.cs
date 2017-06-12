@@ -4,9 +4,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Chakad.Core;
 using Chakad.Pipeline.Core;
+using Chakad.Pipeline.Core.Command;
+using Chakad.Pipeline.Core.Event;
 using Chakad.Pipeline.Core.Exceptions;
+using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
-using Chakad.Pipeline.Core.NewFolder1;
+using Chakad.Pipeline.Core.Options;
 
 namespace Chakad.Pipeline
 {
@@ -39,7 +42,7 @@ namespace Chakad.Pipeline
         }
 
         public async Task<TOut> Send<TOut>(IRequest<TOut> command, TimeSpan? timeout = null,
-            TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : RequestResult
+            TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : ChakadResult
         {
 
             var commandType = command.GetType();
@@ -76,7 +79,7 @@ namespace Chakad.Pipeline
         }
 
         private static TOut InvokeMessageHandle<TOut>(IRequest<TOut> command, Type eventHandler, object instance)
-            where TOut : RequestResult
+            where TOut : ChakadResult
         {
             var res = (from info in eventHandler.GetMethods()
                        where info.Name.ToLower() == "handle"

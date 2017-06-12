@@ -1,7 +1,5 @@
 
-using Chakad.Pipeline.Core.Options;
-
-namespace Chakad.Pipeline.Core.NewFolder1
+namespace Chakad.Pipeline.Core.Options
 {
     /// <summary>
     /// Allows the users to control how the send is performed.

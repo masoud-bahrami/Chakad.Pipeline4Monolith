@@ -1,5 +1,3 @@
-using Chakad.Pipeline.Core.NewFolder1;
-
 namespace Chakad.Pipeline.Core.Options
 {
     /// <summary>

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using Chakad.Core;
 using Chakad.Pipeline.Core;
+using Chakad.Pipeline.Core.Command;
+using Chakad.Pipeline.Core.Event;
 using Chakad.Pipeline.Core.MessageHandler;
 
 namespace Chakad.Pipeline

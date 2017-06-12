@@ -47,24 +47,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\ChakadPipelineTimeoutException.cs" />
+    <Compile Include="Query\IBusinessQuery.cs" />
+    <Compile Include="Query\QueryResult.cs" />
+    <Compile Include="Query\SingleQuery.cs" />
+    <Compile Include="Query\SingleQueryResult.cs" />
+    <Compile Include="Query\ListQueryResult.cs" />
+    <Compile Include="Query\ListQuery.cs" />
     <Compile Include="Options\SubscribeOptions.cs" />
     <Compile Include="Options\UnsubscribeOptions.cs" />
     <Compile Include="Exceptions\ChakadPipelineNotFoundHandler.cs" />
     <Compile Include="MessageHandler\IHandleMessage.cs" />
-    <Compile Include="MessageHandler\IRequest.cs" />
+    <Compile Include="Command\IRequest.cs" />
     <Compile Include="MessageHandler\IWantToHandleThisMessage.cs" />
-    <Compile Include="MessageHandler\IMessageInterface.cs" />
-    <Compile Include="MessageHandler\IRequestResult.cs" />
+    <Compile Include="Message\IMessageInterface.cs" />
+    <Compile Include="Message\IChakadResult.cs" />
     <Compile Include="MessageHandler\MessageHandlerBase.cs" />
     <Compile Include="Options\ExtendableOptions.cs" />
     <Compile Include="IWantToRunAfter.cs" />
     <Compile Include="Options\PublishOptions.cs" />
     <Compile Include="Options\ReplyOptions.cs" />
     <Compile Include="Options\SendOptions.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="IDomainEvent.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Event\IDomainEvent.cs" />
     <Compile Include="IWantToHandleEvent.cs" />
-    <Compile Include="IMessage.cs" />
+    <Compile Include="Message\IMessage.cs" />
     <Compile Include="IPipeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

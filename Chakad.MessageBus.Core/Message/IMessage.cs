@@ -1,4 +1,4 @@
-﻿namespace Chakad.Pipeline.Core
+﻿namespace Chakad.Pipeline.Core.Message
 {
     /// <summary>
     /// Marker interface to indicate that a class is a message suitable

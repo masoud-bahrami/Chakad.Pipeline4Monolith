@@ -1,4 +1,4 @@
-namespace Chakad.Pipeline.Core.MessageHandler
+namespace Chakad.Pipeline.Core.Message
 {
     public interface IMessageInterface
     {
