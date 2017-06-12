@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Message;
 
 namespace Chakad.Pipeline.Core.MessageHandler

@@ -7,9 +7,9 @@ using Chakad.Pipeline.Core.MessageHandler;
 
 namespace Chakad.MessageHandler.CommandHandlers
 {
-    public class StartActivityCommand : IWantToHandleThisMessage<Messages.Command.StartActivityCommand, StartActivityCommandChakadResult>, IWantToRunAfter<Messages.Command.StartActivityCommand>
+    public class StartActivityCommandHander : IWantToHandleThisMessage<StartActivityCommand, StartActivityCommandChakadResult>, IWantToRunAfter<StartActivityCommand>
     {
-        public override async Task<StartActivityCommandChakadResult> Execute(Messages.Command.StartActivityCommand message)
+        public override async Task<StartActivityCommandChakadResult> Execute(StartActivityCommand message)
         {
             //TODO
             Console.WriteLine("-----------------" + DateTime.Now + "--------------------");
@@ -17,7 +17,7 @@ namespace Chakad.MessageHandler.CommandHandlers
             Console.WriteLine("Activity id is: " + message.Id + " Activity message is " + message.Message);
 
             Console.WriteLine("-----------------" + DateTime.Now + "--------------------");
-            Console.WriteLine("Send  AnotherActivityCommand in StartActivityCommand");
+            Console.WriteLine("Send  AnotherActivityCommand in StartActivityCommandHander");
 
             Thread.Sleep(1000);
             var result = Pipeline.Send(new Messages.Command.AnotherActivityCommand

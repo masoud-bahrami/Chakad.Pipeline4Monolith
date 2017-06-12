@@ -5,7 +5,7 @@ using Chakad.Pipeline.Core.Message;
 
 namespace Chakad.Pipeline.Core.MessageHandler
 {
-    public abstract class IWantToHandleThisMessage<T, TOut> :
+    public abstract class IWantToHandleThisRequest<T, TOut> :
         MessageHandlerBase<T, TOut>
         where T : class, IChakadRequest<TOut>
         where TOut : class, IChakadResult, new()

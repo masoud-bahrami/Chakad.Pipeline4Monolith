@@ -1,5 +1,4 @@
-﻿using Chakad.Pipeline.Core.Command;
-using Chakad.Pipeline.Core.Message;
+﻿using Chakad.Pipeline.Core.Message;
 
 namespace Chakad.Pipeline.Core.Query
 {
