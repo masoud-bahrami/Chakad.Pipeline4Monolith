@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandlers\AnotherActivityCommand.cs" />
-    <Compile Include="CommandHandlers\StartActivityCommand.cs" />
+    <Compile Include="CommandHandlers\StartActivityCommandHander.cs" />
     <Compile Include="EventSubscribers\MyEventSubscriber.cs" />
     <Compile Include="EventSubscribers\MyEventSubscriber1.cs" />
     <Compile Include="EventSubscribers\MyEventSubscriber2.cs" />

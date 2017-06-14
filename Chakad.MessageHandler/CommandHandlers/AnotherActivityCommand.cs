@@ -5,7 +5,7 @@ using Chakad.Pipeline.Core.MessageHandler;
 
 namespace Chakad.MessageHandler.CommandHandlers
 {
-    public class AnotherActivityCommand : IWantToHandleThisMessage<Messages.Command.AnotherActivityCommand,
+    public class AnotherActivityCommand : IWantToHandleThisRequest<Messages.Command.AnotherActivityCommand,
         AnotherActivityCommandChakadResult>
     {
         public override async Task<AnotherActivityCommandChakadResult> Execute(Messages.Command.AnotherActivityCommand message)

@@ -1,0 +1,7 @@
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad.Tests\bin\Debug\Chakad.Tests.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad.Tests\bin\Debug\Chakad.Tests.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad.Tests\obj\Debug\Chakad.Tests.csprojResolveAssemblyReference.cache
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad.Tests\obj\Debug\Chakad.Tests.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad.Tests\obj\Debug\Chakad.Tests.pdb

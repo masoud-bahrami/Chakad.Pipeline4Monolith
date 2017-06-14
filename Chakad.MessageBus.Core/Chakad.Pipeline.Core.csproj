@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\ChakadPipelineTimeoutException.cs" />
+    <Compile Include="MessageHandler\IWantToHandleThisQuery.cs" />
     <Compile Include="Query\IBusinessQuery.cs" />
     <Compile Include="Query\IQuery.cs" />
     <Compile Include="Query\QueryResult.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="Exceptions\ChakadPipelineNotFoundHandler.cs" />
     <Compile Include="MessageHandler\IHandleMessage.cs" />
     <Compile Include="Command\IChakadRequest.cs" />
-    <Compile Include="MessageHandler\IWantToHandleThisMessage.cs" />
+    <Compile Include="MessageHandler\IWantToHandleThisRequest.cs" />
     <Compile Include="Message\IMessageInterface.cs" />
     <Compile Include="Message\IChakadResult.cs" />
     <Compile Include="MessageHandler\MessageHandlerBase.cs" />

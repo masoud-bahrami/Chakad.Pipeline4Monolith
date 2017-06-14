@@ -66,10 +66,6 @@
       <Project>{275E7E62-DA5F-4128-99C0-CC7BEEA140C1}</Project>
       <Name>Chakad.Pipeline.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Chakad.Messages\Chakad.Messages.csproj">
-      <Project>{78AB73FB-D181-4EB8-98AD-BBD1FFEDB853}</Project>
-      <Name>Chakad.Messages</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
