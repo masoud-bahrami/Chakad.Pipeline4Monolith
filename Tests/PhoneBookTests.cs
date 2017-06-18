@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Chakad.Samples.PhoneBook.Commands;
 using Chakad.Samples.PhoneBook.Queries;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -124,6 +125,77 @@ namespace Chakad.Tests
             Assert.AreEqual(contactQueryResult.FirstName , contact.Entity.FirstName);
             Assert.AreEqual(contactQueryResult.LastName , contact.Entity.LastName);
             Assert.AreEqual(contactQueryResult.Address , contact.Entity.Address);
+        }
+        [TestMethod]
+        public void MessagePolicyTest()
+        {
+            Initializer(false);
+
+            var chakadResult = SendCommand(new TestAttributeCommand());
+            Assert.IsFalse(chakadResult.Succeeded);
+            
+            chakadResult = SendCommand(new TestAttributeCommand
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "masoud"
+            }, new TimeSpan(0, 0, 10, 0));
+            Assert.IsFalse(chakadResult.Succeeded);
+
+            chakadResult = SendCommand(new TestAttributeCommand
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "masoud",
+                MaxValue = 10
+            }, new TimeSpan(0, 0, 10, 0));
+            Assert.IsFalse(chakadResult.Succeeded);
+
+            chakadResult = SendCommand(new TestAttributeCommand
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "masoud",
+                MaxValue = 10,
+                MinValue = 10
+            }, new TimeSpan(0, 0, 10, 0));
+            Assert.IsFalse(chakadResult.Succeeded);
+
+            chakadResult = SendCommand(new TestAttributeCommand
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "masoud",
+                MaxValue = 10,
+                MinValue = 10
+            }, new TimeSpan(0, 0, 10, 0));
+            Assert.IsFalse(chakadResult.Succeeded);
+
+            chakadResult = SendCommand(new TestAttributeCommand
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "masoud",
+                MaxValue = 10,
+                MinValue = 10,
+                Range =20 
+            });
+            Assert.IsFalse(chakadResult.Succeeded);
+
+            chakadResult = SendCommand(new TestAttributeCommand
+            {
+                Id = Guid.Empty,
+                FirstName = "mas",
+                MaxValue = 10,
+                MinValue = 10,
+                Range = 20
+            });
+            Assert.IsFalse(chakadResult.Succeeded);
+
+            chakadResult = SendCommand(new TestAttributeCommand
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "mas",
+                MaxValue = 10,
+                MinValue = 10,
+                Range = 20
+            });
+            Assert.IsTrue(chakadResult.Succeeded);
         }
     }
 }
