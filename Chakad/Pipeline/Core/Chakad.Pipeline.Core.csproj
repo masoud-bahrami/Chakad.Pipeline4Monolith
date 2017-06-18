@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\GuidRequiredAttribute.cs" />
+    <Compile Include="Attributes\IHaveNotAnyPolicyAttribute.cs" />
     <Compile Include="Attributes\ThisIsTheBaseHandlerForQueryObjectAttribute.cs" />
     <Compile Include="Attributes\ThisIsTheBaseHandlerForCommandObjectAttribute.cs" />
     <Compile Include="Exceptions\ChakadPipelineTimeoutException.cs" />

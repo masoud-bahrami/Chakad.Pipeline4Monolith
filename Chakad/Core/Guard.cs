@@ -27,6 +27,17 @@ namespace Chakad.Core
         }
 
         [ContractAnnotation("value: null => halt")]
+        public static bool InformMeIfNull([NotNull] object value)
+        {
+            return (value == null);
+        }
+
+        [ContractAnnotation("value: null => halt")]
+        public static bool Compare([NotNull] object value1, [NotNull] object value2)
+        {
+            return (value1 == value2);
+        }
+        [ContractAnnotation("value: null => halt")]
         public static void AgainstNullAndEmpty([InvokerParameterName] string argumentName,
             [NotNull] string value)
         {
@@ -75,6 +86,30 @@ namespace Chakad.Core
         {
             if (value < TimeSpan.Zero)
                 throw new ArgumentOutOfRangeException(argumentName);
+        }
+
+        public static bool AgainstGreatherThan(long maxLength, long value)
+        {
+            return value <= maxLength;
+        }
+        public static bool AgainstShorterThan(long minLength, long value)
+        {
+            return value >= minLength;
+        }
+
+        public static bool AgainstBetween(long value, long minLength, long maxValue)
+        {
+            return value >= minLength && value >= maxValue;
+        }
+
+        public static bool AgainstNullGuid(Guid value)
+        {
+            return value != null && value != Guid.Empty;
+        }
+
+        public static bool AgainstStringMaxLength(string toString, int maximumLength)
+        {
+            return !string.IsNullOrEmpty(toString) && toString.Length <= maximumLength;
         }
     }
 }

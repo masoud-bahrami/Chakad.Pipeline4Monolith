@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateContactHander.cs" />
+    <Compile Include="TestAttributeCommandHander.cs" />
     <Compile Include="UpdateContactHander.cs" />
     <Compile Include="DeleteContactHander.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
