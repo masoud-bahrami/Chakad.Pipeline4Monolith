@@ -18,6 +18,6 @@ namespace Chakad.Pipeline.Core
         /// <param name="timeout"></param>
         /// <param name="taskScheduler"></param>
         /// <param name="options">The options for the send.</param>
-        Task<TOut> Run<TOut>(IBusinessQuery<TOut> query, TimeSpan? timeout = null, TaskScheduler taskScheduler = null, SendOptions options = null) where TOut : QueryResult;
+        Task<TOut> Run<TOut>(IBusinessQuery<TOut> query, TimeSpan? timeout = null, Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : QueryResult;
     }
 }

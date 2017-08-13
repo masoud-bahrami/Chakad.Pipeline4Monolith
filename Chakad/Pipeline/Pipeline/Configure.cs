@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Autofac;
 using Chakad.Core;
-using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.Attributes;
-using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Event;
 using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
@@ -128,7 +127,8 @@ namespace Chakad.Pipeline
         internal static Type ResolveQueryHandler(Type domainEvent)
         {
             Initialize();
-            return _queryHandlersRepository.ContainsKey(domainEvent) ? _queryHandlersRepository[domainEvent] : null;
+            return _queryHandlersRepository.ContainsKey(domainEvent) ? 
+                _queryHandlersRepository[domainEvent] : null;
         }
         internal static void Initialize()
         {

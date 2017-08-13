@@ -1,0 +1,13 @@
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Samples.PhoneBook.QueryHandlers.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Samples.PhoneBook.QueryHandlers.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Pipeline.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Model.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Queries.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Pipeline.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Model.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Queries.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\obj\Debug\Chakad.Samples.PhoneBook.QueryHandlers.csprojResolveAssemblyReference.cache
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\obj\Debug\Chakad.Samples.PhoneBook.QueryHandlers.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Query\Handlers\obj\Debug\Chakad.Samples.PhoneBook.QueryHandlers.pdb

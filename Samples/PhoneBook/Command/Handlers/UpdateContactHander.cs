@@ -1,6 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Chakad.Core;
-using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Samples.PhoneBook.Commands;
 using Chakad.Samples.PhoneBook.Model;
@@ -9,8 +7,12 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
 {
     public class UpdateContactHander : IWantToHandleThisRequest<UpdateContact, UpdateContactResult>
     {
-        public IContactRepository ContactRepository => ServiceLocator<IContactRepository>.Resolve();
-        
+        public IContactRepository ContactRepository;
+
+        public UpdateContactHander(IContactRepository contactRepository)
+        {
+            ContactRepository = contactRepository;
+        }
         public override async Task<UpdateContactResult> Execute(UpdateContact message)
         {
             

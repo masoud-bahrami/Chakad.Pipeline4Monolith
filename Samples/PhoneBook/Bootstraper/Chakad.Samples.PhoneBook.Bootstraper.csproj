@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,14 +60,25 @@
       <Project>{A4ADE3C1-7A32-4A54-BB6A-265ABA41CE44}</Project>
       <Name>Chakad.Pipeline</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Command\Handlers\Chakad.Samples.PhoneBook.CommandHandlers.csproj">
+      <Project>{E7B9B29A-BBCF-4ED7-9839-8CE55C730365}</Project>
+      <Name>Chakad.Samples.PhoneBook.CommandHandlers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Chakad.Samples.PhoneBook.Model.csproj">
       <Project>{79F2A46C-89C0-4615-8B3D-752085834DB9}</Project>
       <Name>Chakad.Samples.PhoneBook.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Query\Handlers\Chakad.Samples.PhoneBook.QueryHandlers.csproj">
+      <Project>{6C70293E-2E00-486F-BE19-0FD22FCFADA8}</Project>
+      <Name>Chakad.Samples.PhoneBook.QueryHandlers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository\Chakad.Sample.PhoneBook.Repository.csproj">
       <Project>{859338CC-26E8-44C5-9A9B-8BAE196CED31}</Project>
       <Name>Chakad.Sample.PhoneBook.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

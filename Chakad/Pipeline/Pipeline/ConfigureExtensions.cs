@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using Autofac;
 namespace Chakad.Pipeline
 {
     public static class ConfigureExtensions
@@ -16,6 +16,12 @@ namespace Chakad.Pipeline
             //where THandler : IWantToHandleEvent<T>
         {
             OrderConfiger.SetOrder(type, handles);
+            return configure;
+        }
+
+        public static Configure SetContainer(this Configure configure,ILifetimeScope lifetimeScope)
+        {
+            ChakadContainer.Autofac = lifetimeScope;
             return configure;
         }
 

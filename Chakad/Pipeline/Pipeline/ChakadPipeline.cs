@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Autofac;
 using Chakad.Core;
 using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.Command;
@@ -10,6 +11,8 @@ using Chakad.Pipeline.Core.Exceptions;
 using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Options;
+using Polly;
+using Polly.Retry;
 
 namespace Chakad.Pipeline
 {
@@ -42,7 +45,7 @@ namespace Chakad.Pipeline
         }
 
         public async Task<TOut> Send<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
-            TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : ChakadResult
+            Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult
         {
 
             var commandType = command.GetType();
@@ -56,29 +59,37 @@ namespace Chakad.Pipeline
             if (eventHandler == null)
                 throw new ChakadPipelineNotFoundHandler(@"Not found handler for {0}", command);
 
-            var instance = ActivatorHelper.CreateNewInstance(eventHandler);
-
-            var tokenSource = new CancellationTokenSource();
-
-            if (_taskScheduler == null)
-                _taskScheduler = TaskScheduler.Default;
-
             if (timeout == null)
                 timeout = new TimeSpan(0, 0, 0, 30);
 
-            var task = Task<TOut>.Factory.StartNew(() => InvokeMessageHandle(command, eventHandler, instance),
-                tokenSource.Token, TaskCreationOptions.None, _taskScheduler);
-
-            if (task.IsCompleted || task.Wait((int)timeout.Value.TotalMilliseconds, tokenSource.Token))
+            if (action == null)
             {
-                return task.Result;
+                action = (ex, time) =>
+                {
+                    //TODO log ex
+                    Console.WriteLine(ex.ToString());
+                };
             }
 
-            tokenSource.Cancel();
-            throw new ChakadPipelineTimeoutException();
+            var policy = Policy.Handle<Exception>()
+                .WaitAndRetryAsync(5, retryAttempt => timeout.Value, action);
+
+            using (var scope = ChakadContainer.Autofac.BeginLifetimeScope(ChakadContainer.AutofacScopeName))
+            {
+
+                var handler = scope.ResolveOptional(eventHandler);
+                
+                TOut result = null;
+
+                await policy.ExecuteAsync(async () =>
+                {
+                    result = await InvokeMessageHandle(command, eventHandler, handler);
+                });
+                return result;
+            }
         }
 
-        private static TOut InvokeMessageHandle<TOut>(IChakadRequest<TOut> command, Type eventHandler, object instance)
+        private async Task<TOut> InvokeMessageHandle<TOut>(IChakadRequest<TOut> command, Type eventHandler, object instance)
             where TOut : ChakadResult
         {
             var res = (from info in eventHandler.GetMethods()
@@ -96,26 +107,40 @@ namespace Chakad.Pipeline
             await Task.Run(() => PublishThisEvent(myDomainEvent));
         }
 
-        private static async Task PublishThisEvent<T>(T myDomainEvent) where T : IDomainEvent
+        private static async Task PublishThisEvent<T>(T domainEvent) where T : IDomainEvent
         {
-            var type = myDomainEvent.GetType();
+            var type = domainEvent.GetType();
 
             var eventHandlers = Configure.ResolveEventSubscribers(type);
 
             var orderOf = OrderConfiger.GetOrderOf(type);
 
-            Parallel.ForEach(orderOf, order =>
+            Parallel.ForEach(orderOf, async order =>
                 {
-                    if (!eventHandlers.Contains(order)) return;
-                    var handleDomainEvent = ActivatorHelper.CreateNewInstance<IWantToHandleEvent<T>>(order);
-                    handleDomainEvent.Handle(myDomainEvent);
+                    if (!eventHandlers.Contains(order))
+                        return;
+
+                    using (var scope = ChakadContainer.Autofac.BeginLifetimeScope(ChakadContainer.AutofacScopeName))
+                    {
+                        var handler = scope.ResolveOptional(order);
+
+                        var concreteType = typeof(IWantToHandleEvent<>).MakeGenericType(order);
+
+                        await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { domainEvent });
+                    }
                 }
             );
 
-            Parallel.ForEach(eventHandlers.Except(orderOf), newInstance =>
+            Parallel.ForEach(eventHandlers.Except(orderOf), async newInstance =>
             {
-                var wantToHandleEvent = ActivatorHelper.CreateNewInstance<IWantToHandleEvent<T>>(newInstance);
-                wantToHandleEvent.Handle(myDomainEvent);
+                using (var scope = ChakadContainer.Autofac.BeginLifetimeScope(ChakadContainer.AutofacScopeName))
+                {
+                    var handler = scope.ResolveOptional(newInstance);
+
+                    var concreteType = typeof(IWantToHandleEvent<>).MakeGenericType(newInstance);
+
+                    await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { domainEvent });
+                }
             });
         }
     }

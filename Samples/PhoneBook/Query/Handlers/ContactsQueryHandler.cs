@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Chakad.Core;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Samples.PhoneBook.Model;
 using Chakad.Samples.PhoneBook.Queries;
@@ -9,8 +8,12 @@ namespace Chakad.Samples.PhoneBook.QueryHandlers
 {
     public class ContactsQueryHandler : IWantToHandleThisQuery<ContactsQuery, ContactsQueryResult>
     {
-        public IContactRepository ContactRepository => ServiceLocator<IContactRepository>.Resolve();
+        public IContactRepository ContactRepository;
 
+        public ContactsQueryHandler(IContactRepository contactRepository)
+        {
+            ContactRepository = contactRepository;
+        }
         public override async Task<ContactsQueryResult> Execute(ContactsQuery message)
         {
             var contacts = ContactRepository.LoadAll();
@@ -23,16 +26,16 @@ namespace Chakad.Samples.PhoneBook.QueryHandlers
 
             var contactQueryResult = new ContactsQueryResult
             {
-                TotalCount = contacts.Count
+                TotalCount = contacts.Count,
+                Entities = contacts.Select(contact => new ContactQueryResult
+                {
+                    Id = contact.Id,
+                    FirstName = contact.FirstName,
+                    LastName = contact.LastName,
+                    Address = contact.Address
+                }).ToList()
             };
 
-            contactQueryResult.Entities = contacts.Select(contact => new ContactQueryResult
-            {
-                Id = contact.Id,
-                FirstName = contact.FirstName,
-                LastName = contact.LastName,
-                Address = contact.Address
-            }).ToList();
 
             return contactQueryResult;
         }

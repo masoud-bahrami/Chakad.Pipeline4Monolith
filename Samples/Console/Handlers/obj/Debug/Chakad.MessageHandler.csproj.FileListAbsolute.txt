@@ -1,0 +1,12 @@
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.MessageHandler.dll.config
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.MessageHandler.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.MessageHandler.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.Messages.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.Pipeline.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.Messages.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\bin\Debug\Chakad.Pipeline.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\obj\Debug\Chakad.MessageHandler.csprojResolveAssemblyReference.cache
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\obj\Debug\Chakad.MessageHandler.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Handlers\obj\Debug\Chakad.MessageHandler.pdb

@@ -1,0 +1,8 @@
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\bin\Debug\Chakad.Pipeline.Core.dll.config
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\bin\Debug\Chakad.Pipeline.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\bin\Debug\Chakad.Pipeline.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\bin\Debug\Chakad.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\bin\Debug\Chakad.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\obj\Debug\Chakad.Pipeline.Core.csprojResolveAssemblyReference.cache
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\obj\Debug\Chakad.Pipeline.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Pipeline\Core\obj\Debug\Chakad.Pipeline.Core.pdb

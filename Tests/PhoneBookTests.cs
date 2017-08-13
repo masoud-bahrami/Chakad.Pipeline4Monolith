@@ -24,11 +24,11 @@ namespace Chakad.Tests
             Assert.IsTrue(contact.Succeeded);
 
             var contactsQueryResult = RunQuery(new ContactsQuery());
-            Assert.AreEqual(1, contactsQueryResult.TotalCount);
+            Assert.AreEqual(31, contactsQueryResult.TotalCount);
 
             Assert.AreNotEqual(null, contactsQueryResult.Entities);
 
-            Assert.AreEqual(contactsQueryResult.Entities.FirstOrDefault().Id, contact.Id);
+            Assert.IsTrue(contactsQueryResult.Entities.Select(result => result.Id).Contains(contact.Id));
 
         }
 
@@ -47,11 +47,11 @@ namespace Chakad.Tests
             Assert.IsTrue(contact.Succeeded);
 
             var contactsQueryResult = RunQuery(new ContactsQuery());
-            Assert.AreEqual(1, contactsQueryResult.TotalCount);
+            Assert.AreEqual(31, contactsQueryResult.TotalCount);
 
             Assert.AreNotEqual(null, contactsQueryResult.Entities);
 
-            Assert.AreEqual(contactsQueryResult.Entities.FirstOrDefault().Id, contact.Id);
+            Assert.AreEqual(contactsQueryResult.Entities.LastOrDefault().Id, contact.Id);
 
             var newContact = SendCommand(new UpdateContact
             {
@@ -84,7 +84,7 @@ namespace Chakad.Tests
 
             var totalCount = contactsQueryResult.TotalCount;
 
-            Assert.AreNotEqual(1, totalCount);
+            Assert.AreNotEqual(29, totalCount);
 
             Assert.AreNotEqual(null, contactsQueryResult.Entities);
 
@@ -108,7 +108,7 @@ namespace Chakad.Tests
 
             var totalCount = contactsQueryResult.TotalCount;
 
-            Assert.AreNotEqual(1, totalCount);
+            Assert.AreEqual(30, totalCount);
 
             Assert.AreNotEqual(null, contactsQueryResult.Entities);
 

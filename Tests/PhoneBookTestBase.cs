@@ -25,17 +25,17 @@ namespace Chakad.Tests
         }
 
         public TOut SendCommand<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
-            TaskScheduler _taskScheduler = null, SendOptions options = null) where TOut : ChakadResult
+            Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult
         {
-            var send =  pipeline.Send(command, timeout, _taskScheduler, options);
+            var send =  pipeline.Send(command, timeout, action, options);
             return send.Result;
         }
 
         public TOut RunQuery<TOut> (IBusinessQuery<TOut> query, TimeSpan? timeout = null,
-            TaskScheduler taskScheduler = null, SendOptions options = null)
+            Action<Exception, TimeSpan> action = null, SendOptions options = null)
             where TOut :QueryResult
         {
-            var task = queryEngeen.Run(query, timeout, taskScheduler, options);
+            var task = queryEngeen.Run(query, timeout, action, options);
             return task.Result;
         }
     }

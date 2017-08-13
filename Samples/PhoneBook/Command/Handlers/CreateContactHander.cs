@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Chakad.Core;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Samples.PhoneBook.Commands;
 using Chakad.Samples.PhoneBook.Model;
@@ -8,8 +7,13 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
 {
     public class CreateContactHander : IWantToHandleThisRequest<CreateContact, CreateContactResult>
     {
-        public IContactRepository ContactRepository => ServiceLocator<IContactRepository>.Resolve();
-        
+        public IContactRepository ContactRepository;
+
+        public CreateContactHander(IContactRepository contactRepository)
+        {
+            ContactRepository = contactRepository;
+        }
+
         public override async Task<CreateContactResult> Execute(CreateContact message)
         {
             var lastId = ContactRepository.GetLastId();

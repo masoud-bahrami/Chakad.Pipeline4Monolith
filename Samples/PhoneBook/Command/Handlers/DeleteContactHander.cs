@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Chakad.Core;
 using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Samples.PhoneBook.Commands;
@@ -9,8 +8,12 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
 {
     public class DeleteContactHander : IWantToHandleThisRequest<DeleteContact, ChakadResult>
     {
-        public IContactRepository ContactRepository => ServiceLocator<IContactRepository>.Resolve();
+        public IContactRepository ContactRepository;
 
+        public DeleteContactHander(IContactRepository contactRepository)
+        {
+            ContactRepository = contactRepository;
+        }
         public override async Task<ChakadResult> Execute(DeleteContact message)
         {
             var contact = ContactRepository.Get(message.Id);
