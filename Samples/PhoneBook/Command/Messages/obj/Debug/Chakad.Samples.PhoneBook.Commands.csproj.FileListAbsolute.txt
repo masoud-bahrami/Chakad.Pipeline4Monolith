@@ -7,3 +7,12 @@ C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Comman
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Command\Messages\obj\Debug\Chakad.Samples.PhoneBook.Commands.csprojResolveAssemblyReference.cache
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Command\Messages\obj\Debug\Chakad.Samples.PhoneBook.Commands.dll
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Command\Messages\obj\Debug\Chakad.Samples.PhoneBook.Commands.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\bin\Debug\Chakad.Samples.PhoneBook.Commands.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\bin\Debug\Chakad.Samples.PhoneBook.Commands.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\bin\Debug\Chakad.Pipeline.Core.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\bin\Debug\Chakad.Core.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\bin\Debug\Chakad.Pipeline.Core.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\bin\Debug\Chakad.Core.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\obj\Debug\Chakad.Samples.PhoneBook.Commands.csprojResolveAssemblyReference.cache
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\obj\Debug\Chakad.Samples.PhoneBook.Commands.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Messages\obj\Debug\Chakad.Samples.PhoneBook.Commands.pdb

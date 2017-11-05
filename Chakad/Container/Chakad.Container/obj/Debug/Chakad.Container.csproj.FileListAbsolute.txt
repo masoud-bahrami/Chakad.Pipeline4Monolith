@@ -1,0 +1,11 @@
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Container.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Container.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Autofac.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Core.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Pipeline.Core.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Core.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Pipeline.Core.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\bin\Debug\Autofac.xml
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.csprojResolveAssemblyReference.cache
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.pdb

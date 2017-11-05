@@ -1,5 +1,4 @@
-﻿using System;
-using Chakad.Pipeline.Core.Command;
+﻿using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Message;
 
 namespace Chakad.Samples.PhoneBook.Commands

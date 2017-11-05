@@ -60,7 +60,6 @@
     <Compile Include="ConfigureExtensions.cs" />
     <Compile Include="Configure.cs" />
     <Compile Include="ChakadPipeline.cs" />
-    <Compile Include="ChakadContainer.cs" />
     <Compile Include="OrderConfiger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +68,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Container\Chakad.Container\Chakad.Container.csproj">
+      <Project>{d6d9d203-aaf0-4c30-a07f-394bbb002129}</Project>
+      <Name>Chakad.Container</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\Chakad.Core.csproj">
       <Project>{AE9C8299-4B7D-4BC4-8B8C-C4046E5D094C}</Project>
       <Name>Chakad.Core</Name>

@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Chakad.Messages.Command;
-using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.MessageHandler;
 
 namespace Chakad.MessageHandler.CommandHandlers

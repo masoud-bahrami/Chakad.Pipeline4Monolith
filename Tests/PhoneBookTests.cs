@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Chakad.Samples.PhoneBook.Commands;
 using Chakad.Samples.PhoneBook.Queries;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,11 +11,11 @@ namespace Chakad.Tests
     public class PhoneBookTests : PhoneBookTestBase
     {
         [TestMethod]
-        public void CreateListTest()
+        public async Task CreateListTest()
         {
             Initializer(false);
 
-            var contact = SendCommand(new CreateContact
+            var contact = await SendCommand(new CreateContact
             {
                 FirstName = "Masoud",
                 LastName = "Bahrami",
@@ -23,7 +24,7 @@ namespace Chakad.Tests
 
             Assert.IsTrue(contact.Succeeded);
 
-            var contactsQueryResult = RunQuery(new ContactsQuery());
+            var contactsQueryResult =await RunQuery(new ContactsQuery());
             Assert.AreEqual(31, contactsQueryResult.TotalCount);
 
             Assert.AreNotEqual(null, contactsQueryResult.Entities);
@@ -33,11 +34,11 @@ namespace Chakad.Tests
         }
 
         [TestMethod]
-        public void UpdateListTest()
+        public async Task UpdateListTest()
         {
             Initializer(false);
 
-            var contact = SendCommand(new CreateContact
+            var contact = await SendCommand(new CreateContact
             {
                 FirstName = "Masoud",
                 LastName = "Bahrami",
@@ -46,14 +47,14 @@ namespace Chakad.Tests
 
             Assert.IsTrue(contact.Succeeded);
 
-            var contactsQueryResult = RunQuery(new ContactsQuery());
+            var contactsQueryResult =await RunQuery(new ContactsQuery());
             Assert.AreEqual(31, contactsQueryResult.TotalCount);
 
             Assert.AreNotEqual(null, contactsQueryResult.Entities);
 
             Assert.AreEqual(contactsQueryResult.Entities.LastOrDefault().Id, contact.Id);
 
-            var newContact = SendCommand(new UpdateContact
+            var newContact =await SendCommand(new UpdateContact
             {
                 Id = contact.Id,
                 FirstName = "مسعود",
@@ -62,7 +63,7 @@ namespace Chakad.Tests
             });
             Assert.AreEqual(true , newContact.Succeeded);
 
-            var result = RunQuery(new GetContactQuery
+            var result =await RunQuery(new GetContactQuery
             {
                 Id = newContact.Id
             });
@@ -76,11 +77,11 @@ namespace Chakad.Tests
         }
 
         [TestMethod]
-        public void DeleteContact()
+        public async Task DeleteContact()
         {
             Initializer();
 
-            var contactsQueryResult = RunQuery(new ContactsQuery());
+            var contactsQueryResult =await RunQuery(new ContactsQuery());
 
             var totalCount = contactsQueryResult.TotalCount;
 
@@ -88,23 +89,23 @@ namespace Chakad.Tests
 
             Assert.AreNotEqual(null, contactsQueryResult.Entities);
 
-            var contact = SendCommand(new DeleteContact
+            var contact =await SendCommand(new DeleteContact
             {
                 Id = contactsQueryResult.Entities.FirstOrDefault().Id
             });
 
             Assert.IsTrue(contact.Succeeded);
 
-            contactsQueryResult = RunQuery(new ContactsQuery());
+            contactsQueryResult =await RunQuery(new ContactsQuery());
             Assert.AreEqual(totalCount-1, contactsQueryResult.TotalCount);
         }
 
         [TestMethod]
-        public void ContactQueryTests()
+        public async Task ContactQueryTests()
         {
             Initializer();
 
-            var contactsQueryResult = RunQuery(new ContactsQuery());
+            var contactsQueryResult = await RunQuery(new ContactsQuery());
 
             var totalCount = contactsQueryResult.TotalCount;
 
@@ -114,7 +115,7 @@ namespace Chakad.Tests
 
             var contactQueryResult = contactsQueryResult.Entities.FirstOrDefault();
 
-            var contact = RunQuery(new GetContactQuery
+            var contact =await RunQuery(new GetContactQuery
             {
                 Id = contactQueryResult.Id
             });
@@ -127,21 +128,21 @@ namespace Chakad.Tests
             Assert.AreEqual(contactQueryResult.Address , contact.Entity.Address);
         }
         [TestMethod]
-        public void MessagePolicyTest()
+        public async Task MessagePolicyTest()
         {
             Initializer(false);
 
-            var chakadResult = SendCommand(new TestAttributeCommand());
+            var chakadResult =await SendCommand(new TestAttributeCommand());
             Assert.IsFalse(chakadResult.Succeeded);
             
-            chakadResult = SendCommand(new TestAttributeCommand
+            chakadResult = await SendCommand(new TestAttributeCommand
             {
                 Id = Guid.NewGuid(),
                 FirstName = "masoud"
             }, new TimeSpan(0, 0, 10, 0));
             Assert.IsFalse(chakadResult.Succeeded);
 
-            chakadResult = SendCommand(new TestAttributeCommand
+            chakadResult = await SendCommand(new TestAttributeCommand
             {
                 Id = Guid.NewGuid(),
                 FirstName = "masoud",
@@ -149,7 +150,7 @@ namespace Chakad.Tests
             }, new TimeSpan(0, 0, 10, 0));
             Assert.IsFalse(chakadResult.Succeeded);
 
-            chakadResult = SendCommand(new TestAttributeCommand
+            chakadResult = await SendCommand(new TestAttributeCommand
             {
                 Id = Guid.NewGuid(),
                 FirstName = "masoud",
@@ -158,7 +159,7 @@ namespace Chakad.Tests
             }, new TimeSpan(0, 0, 10, 0));
             Assert.IsFalse(chakadResult.Succeeded);
 
-            chakadResult = SendCommand(new TestAttributeCommand
+            chakadResult = await SendCommand(new TestAttributeCommand
             {
                 Id = Guid.NewGuid(),
                 FirstName = "masoud",
@@ -167,7 +168,7 @@ namespace Chakad.Tests
             }, new TimeSpan(0, 0, 10, 0));
             Assert.IsFalse(chakadResult.Succeeded);
 
-            chakadResult = SendCommand(new TestAttributeCommand
+            chakadResult = await SendCommand(new TestAttributeCommand
             {
                 Id = Guid.NewGuid(),
                 FirstName = "masoud",
@@ -177,7 +178,7 @@ namespace Chakad.Tests
             });
             Assert.IsFalse(chakadResult.Succeeded);
 
-            chakadResult = SendCommand(new TestAttributeCommand
+            chakadResult = await SendCommand(new TestAttributeCommand
             {
                 Id = Guid.Empty,
                 FirstName = "mas",
@@ -187,7 +188,7 @@ namespace Chakad.Tests
             });
             Assert.IsFalse(chakadResult.Succeeded);
 
-            chakadResult = SendCommand(new TestAttributeCommand
+            chakadResult = await SendCommand(new TestAttributeCommand
             {
                 Id = Guid.NewGuid(),
                 FirstName = "mas",

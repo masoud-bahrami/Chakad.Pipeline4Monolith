@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Autofac;
+using Chakad.Container;
+
 namespace Chakad.Pipeline
 {
     public static class ConfigureExtensions
@@ -19,9 +21,9 @@ namespace Chakad.Pipeline
             return configure;
         }
 
-        public static Configure SetContainer(this Configure configure,ILifetimeScope lifetimeScope)
+        public static Configure SetContainer(this Configure configure,ContainerBuilder containerBuilder = null)
         {
-            ChakadContainer.Autofac = lifetimeScope;
+            ChakadContainer.Run(containerBuilder);
             return configure;
         }
 

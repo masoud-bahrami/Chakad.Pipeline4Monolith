@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
-using Chakad.Core;
+using Chakad.Container;
 using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Event;
@@ -12,13 +11,11 @@ using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Options;
 using Polly;
-using Polly.Retry;
 
 namespace Chakad.Pipeline
 {
     public class ChakadPipeline : IPipeline
     {
-        private static readonly object ObjectLock = new object();
         public async Task Subscribe<T>(IWantToHandleEvent<T> eventHandler, Type type)
             where T : IDomainEvent
         {
@@ -29,7 +26,7 @@ namespace Chakad.Pipeline
 
             var key = typeof(T);
 
-            Configure.Register(type1, key);
+            ChakadContainer.Register(type1, key);
         }
 
         public async Task UnSubscribe<T>(IWantToHandleEvent<T> eventHandler, Type myEvent) where T : IDomainEvent
@@ -41,26 +38,25 @@ namespace Chakad.Pipeline
 
             var key = typeof(T);
 
-            Configure.UnRegister(type1, key);
+            ChakadContainer.UnRegister(type1, key);
         }
 
         public async Task<TOut> Send<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult
         {
-
             var commandType = command.GetType();
 
             var baseType = command.GetType().BaseType;
             if (baseType == null)
                 throw new Exception();
 
-            var eventHandler = Configure.ResolveCommandHandler(commandType);
+            var eventHandler = ChakadContainer.ResolveCommandHandler(commandType);
 
             if (eventHandler == null)
                 throw new ChakadPipelineNotFoundHandler(@"Not found handler for {0}", command);
 
             if (timeout == null)
-                timeout = new TimeSpan(0, 0, 0, 30);
+                timeout = new TimeSpan(0, 0, 0,0,500);
 
             if (action == null)
             {
@@ -72,11 +68,10 @@ namespace Chakad.Pipeline
             }
 
             var policy = Policy.Handle<Exception>()
-                .WaitAndRetryAsync(5, retryAttempt => timeout.Value, action);
+                .WaitAndRetryAsync(1, retryAttempt => timeout.Value, action);
 
             using (var scope = ChakadContainer.Autofac.BeginLifetimeScope(ChakadContainer.AutofacScopeName))
             {
-
                 var handler = scope.ResolveOptional(eventHandler);
                 
                 TOut result = null;
@@ -85,6 +80,7 @@ namespace Chakad.Pipeline
                 {
                     result = await InvokeMessageHandle(command, eventHandler, handler);
                 });
+
                 return result;
             }
         }
@@ -97,8 +93,15 @@ namespace Chakad.Pipeline
                        select info.Invoke(instance, new object[] { command }))
                 .FirstOrDefault();
 
-            var task = res as Task<TOut>;
-            return task?.Result;
+            var task1 = res as Task<TOut>;
+
+            if (task1 == null) return null;
+
+            if (task1.Exception != null)
+                throw task1.Exception;
+
+            var task = await task1;
+            return task;
         }
 
         public async Task Publish<T>(T myDomainEvent, SendOptions options)
@@ -111,7 +114,7 @@ namespace Chakad.Pipeline
         {
             var type = domainEvent.GetType();
 
-            var eventHandlers = Configure.ResolveEventSubscribers(type);
+            var eventHandlers = ChakadContainer.ResolveEventSubscribers(type);
 
             var orderOf = OrderConfiger.GetOrderOf(type);
 

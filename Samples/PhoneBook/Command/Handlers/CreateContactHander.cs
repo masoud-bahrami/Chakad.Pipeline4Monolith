@@ -9,6 +9,10 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
     {
         public IContactRepository ContactRepository;
 
+        public CreateContactHander()
+        {
+            
+        }
         public CreateContactHander(IContactRepository contactRepository)
         {
             ContactRepository = contactRepository;

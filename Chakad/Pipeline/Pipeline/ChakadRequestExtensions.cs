@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Chakad.Container;
 using Chakad.Pipeline.Core.Event;
 using Chakad.Pipeline.Core.MessageHandler;
 
@@ -23,7 +24,7 @@ namespace Chakad.Pipeline
 
             var key = typeof(T);
 
-            Configure.Register(type1, key);
+            ChakadContainer.Register(type1, key);
         }
         /// <summary>
         /// 
@@ -41,7 +42,7 @@ namespace Chakad.Pipeline
 
             var key = typeof(T);
 
-            Configure.UnRegister(type1, key);
+            ChakadContainer.UnRegister(type1, key);
         }
     }
 }

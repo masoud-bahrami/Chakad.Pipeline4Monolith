@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Event;
 using Chakad.Pipeline.Core.Message;
-using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Options;
 
 namespace Chakad.Pipeline.Core

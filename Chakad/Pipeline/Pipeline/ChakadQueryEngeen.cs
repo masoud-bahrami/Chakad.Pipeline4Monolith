@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Sockets;
-using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
-using Chakad.Core;
+using Chakad.Container;
 using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.Exceptions;
-using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Options;
 using Chakad.Pipeline.Core.Query;
 using Polly;
-using Polly.Retry;
 
 namespace Chakad.Pipeline
 {
@@ -40,13 +36,13 @@ namespace Chakad.Pipeline
             if (baseType == null)
                 throw new Exception();
 
-            var eventHandler = Configure.ResolveQueryHandler(commandType);
+            var eventHandler = ChakadContainer.ResolveQueryHandler(commandType);
 
             if (eventHandler == null)
                 throw new ChakadPipelineNotFoundHandler(@"Not found handler for {0}", query);
 
             if (timeout == null)
-                timeout = new TimeSpan(0, 0, 0, 30);
+                timeout = new TimeSpan(0, 0, 0, 0,500);
 
             if (action == null)
             {
@@ -58,7 +54,7 @@ namespace Chakad.Pipeline
             }
 
             var policy = Policy.Handle<Exception>()
-                .WaitAndRetryAsync(5, retryAttempt => timeout.Value, action);
+                .WaitAndRetryAsync(1, retryAttempt => timeout.Value, action);
 
             using (var scope = ChakadContainer.Autofac.BeginLifetimeScope(ChakadContainer.AutofacScopeName))
             {

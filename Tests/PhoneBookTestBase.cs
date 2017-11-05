@@ -24,19 +24,19 @@ namespace Chakad.Tests
             Bootstraper.Run(iNeedSampleData);
         }
 
-        public TOut SendCommand<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
+        public async Task<TOut> SendCommand<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult
         {
-            var send =  pipeline.Send(command, timeout, action, options);
-            return send.Result;
+            var send =  await pipeline.Send(command, timeout, action, options);
+            return send;
         }
 
-        public TOut RunQuery<TOut> (IBusinessQuery<TOut> query, TimeSpan? timeout = null,
+        public async Task<TOut> RunQuery<TOut> (IBusinessQuery<TOut> query, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null)
             where TOut :QueryResult
         {
-            var task = queryEngeen.Run(query, timeout, action, options);
-            return task.Result;
+            var task = await queryEngeen.Run(query, timeout, action, options);
+            return task;
         }
     }
 }

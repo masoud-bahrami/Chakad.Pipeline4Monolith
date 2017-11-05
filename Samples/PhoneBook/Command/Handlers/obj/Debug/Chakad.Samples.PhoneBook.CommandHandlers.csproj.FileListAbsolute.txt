@@ -11,3 +11,16 @@ C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Comman
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Command\Handlers\obj\Debug\Chakad.Samples.PhoneBook.CommandHandlers.csprojResolveAssemblyReference.cache
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Command\Handlers\obj\Debug\Chakad.Samples.PhoneBook.CommandHandlers.dll
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Command\Handlers\obj\Debug\Chakad.Samples.PhoneBook.CommandHandlers.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Samples.PhoneBook.CommandHandlers.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Samples.PhoneBook.CommandHandlers.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Core.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Pipeline.Core.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Commands.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Model.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Core.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Pipeline.Core.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Model.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\bin\Debug\Chakad.Samples.PhoneBook.Commands.pdb
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\obj\Debug\Chakad.Samples.PhoneBook.CommandHandlers.csprojResolveAssemblyReference.cache
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\obj\Debug\Chakad.Samples.PhoneBook.CommandHandlers.dll
+L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Command\Handlers\obj\Debug\Chakad.Samples.PhoneBook.CommandHandlers.pdb

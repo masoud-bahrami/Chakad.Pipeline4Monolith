@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Chakad.Pipeline.Core.Message;
 
 namespace Chakad.Pipeline.Core.Query
 {

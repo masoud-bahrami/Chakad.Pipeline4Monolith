@@ -1,6 +1,5 @@
 ﻿using System;
 using Chakad.Messages.Events;
-using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.MessageHandler;
 
 namespace Chakad.MessageHandler.EventSubscribers
