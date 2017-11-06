@@ -30,9 +30,10 @@ namespace Chakad.Pipeline
         /// </summary>
         /// <param name="assemblyPath"></param>
         /// <param name="assemblyNameContain"></param>
-        public static Configure With(string assemblyPath,string assemblyNameContain = "")
+        /// <param name="filterByDll"></param>
+        public static Configure With(string assemblyPath,string assemblyNameContain = "",bool filterByDll = true)
         {
-            var types = TypeHelper.GetTypes(assemblyPath,assemblyNameContain, typeof(IWantToHandleThisEventInterface)
+            var types = TypeHelper.GetTypes(assemblyPath,assemblyNameContain,filterByDll, typeof(IWantToHandleThisEventInterface)
                 , typeof(IHandleMessage));
             With(types);
             return Instance;
@@ -61,9 +62,11 @@ namespace Chakad.Pipeline
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="assemblyNameContain"></param>
+        /// <param>
+        ///     <name>filterByDll</name>
+        /// </param>
         /// <param name="assemblies"></param>
-        public static Configure With(string assemblyNameContain = "", params Assembly[] assemblies)
+        public static Configure With(params Assembly[] assemblies)
         {
             var types = TypeHelper.GetTypes(assemblies.ToList(),
                 typeof(IWantToHandleThisEventInterface)

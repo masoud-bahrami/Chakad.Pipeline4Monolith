@@ -40,3 +40,5 @@ L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Sample
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\Console\Bootstraper\obj\Debug\Chakad.Bootstraper.pdb
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\Console\Bootstraper\bin\Debug\Chakad.Container.dll
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\Console\Bootstraper\bin\Debug\Chakad.Container.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Bootstraper\bin\Debug\Chakad.Container.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\Console\Bootstraper\bin\Debug\Chakad.Container.pdb

@@ -64,3 +64,5 @@ L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Tests\
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Tests\obj\Debug\Chakad.Tests.pdb
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Tests\bin\Debug\Chakad.Container.dll
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Tests\bin\Debug\Chakad.Container.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Tests\bin\Debug\Chakad.Container.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Tests\bin\Debug\Chakad.Container.pdb

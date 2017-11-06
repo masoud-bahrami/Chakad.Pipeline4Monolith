@@ -60,7 +60,7 @@ namespace Chakad.Samples.PhoneBook.Bootstraper
         {
             var container = ConfigContainer();
             
-            Configure.With(ApplicationPath,"chakad").SetContainer(container);
+            Configure.With(ApplicationPath,"",false).SetContainer(container);
         }
 
         private static void RegisterDeendencies(bool iNeedSampleData)

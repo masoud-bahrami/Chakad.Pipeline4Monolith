@@ -42,7 +42,7 @@ namespace Chakad.Pipeline
         }
 
         public async Task<TOut> Send<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
-            Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult
+            Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult, new()
         {
             var commandType = command.GetType();
 
@@ -86,7 +86,7 @@ namespace Chakad.Pipeline
         }
 
         private async Task<TOut> InvokeMessageHandle<TOut>(IChakadRequest<TOut> command, Type eventHandler, object instance)
-            where TOut : ChakadResult
+            where TOut : ChakadResult, new()
         {
             var res = (from info in eventHandler.GetMethods()
                        where info.Name.ToLower() == "handle"
@@ -98,7 +98,11 @@ namespace Chakad.Pipeline
             if (task1 == null) return null;
 
             if (task1.Exception != null)
-                throw task1.Exception;
+                return new TOut
+                {
+                    Succeeded = false,
+                    AggregatedExceptions = task1.Exception
+                };
 
             var task = await task1;
             return task;

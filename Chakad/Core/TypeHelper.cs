@@ -9,16 +9,21 @@ namespace Chakad.Core
     public static class TypeHelper
     {
 
-        public static List<Type> GetTypes(string path, string assemblyNameContain, params Type[] inheritedfrom)
+        public static List<Type> GetTypes(string path, string assemblyNameContain,bool filterByDll =true, params Type[] inheritedfrom)
         {
             var types = new List<Type>();
             var files =
                 Directory.GetFiles(path, "*.*", SearchOption.AllDirectories).Where(
-                    s => 
-                        !string.IsNullOrWhiteSpace(assemblyNameContain)
-                            ? s.ToLower().Contains(assemblyNameContain) && s.ToLower().EndsWith(".dll") 
-                            : s.ToLower().EndsWith(".dll")
-                    );
+                    s =>
+                    {
+                        return 
+                        !string.IsNullOrWhiteSpace(assemblyNameContain) && filterByDll
+                            ? s.ToLower().Contains(assemblyNameContain.ToLower()) && s.ToLower().EndsWith(".dll")
+                            : string.IsNullOrWhiteSpace(assemblyNameContain) && filterByDll
+                                ? s.ToLower().EndsWith(".dll")
+                                : string.IsNullOrWhiteSpace(assemblyNameContain) || filterByDll || s.ToLower().Contains(assemblyNameContain.ToLower());
+                    });
+
             foreach (var file in files)
             {
                 try

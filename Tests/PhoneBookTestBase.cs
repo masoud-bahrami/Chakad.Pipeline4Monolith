@@ -25,7 +25,7 @@ namespace Chakad.Tests
         }
 
         public async Task<TOut> SendCommand<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
-            Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult
+            Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult ,new ()
         {
             var send =  await pipeline.Send(command, timeout, action, options);
             return send;

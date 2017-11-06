@@ -9,3 +9,14 @@ L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.csprojResolveAssemblyReference.cache
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.dll
 L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Container.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Container.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Autofac.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Pipeline.Core.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Chakad.Pipeline.Core.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Autofac.xml
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.csprojResolveAssemblyReference.cache
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.dll
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.pdb
