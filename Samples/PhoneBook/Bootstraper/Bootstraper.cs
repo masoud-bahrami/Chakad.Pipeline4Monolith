@@ -31,36 +31,24 @@ namespace Chakad.Samples.PhoneBook.Bootstraper
         private static IQueryEngeen _queryEngeen;
         public static IQueryEngeen QueryEngeen => _queryEngeen ?? (_queryEngeen = ServiceLocator<IQueryEngeen>.Resolve());
         #endregion
-        
 
-        public static void Run(bool iNeedSampleData=true)
+
+        public static void Run(bool iNeedSampleData = true)
         {
             RegisterDeendencies(iNeedSampleData);
-            ConfigContainer();
-            ConfigChakadPipeline();
-        }
 
-        private static ContainerBuilder ConfigContainer(bool iNeedSampleData = true)
-        {
-            var container = new ContainerBuilder();
-            //container.RegisterTypes(typeof (ContactsQueryHandler));
-            ////container.RegisterTypes(typeof (CreateContactHander));
-            //container.RegisterTypes(typeof (DeleteContactHander));
-            //container.RegisterTypes(typeof (TestAttributeCommandHander));
-            //container.RegisterTypes(typeof (UpdateContactHander));
-            //container.RegisterTypes(typeof(GetContactQueryHandler));
-            container.RegisterType<ContactRepository>().As<IContactRepository>()
-                .UsingConstructor(() => new ContactRepository(iNeedSampleData))
-                .SingleInstance();
-            return container;
+            ConfigChakadPipeline(iNeedSampleData);
         }
 
         #region Private Methodes
-        private static void ConfigChakadPipeline()
+        private static void ConfigChakadPipeline(bool iNeedSampleData = true)
         {
-            var container = ConfigContainer();
-            
-            Configure.With(ApplicationPath,"",false).SetContainer(container);
+            var container = new Container();
+            container.RegisterRepository(iNeedSampleData);
+
+            Configure.With(ApplicationPath, "chakad").SetContainer(container);
+
+            Container.Build();
         }
 
         private static void RegisterDeendencies(bool iNeedSampleData)

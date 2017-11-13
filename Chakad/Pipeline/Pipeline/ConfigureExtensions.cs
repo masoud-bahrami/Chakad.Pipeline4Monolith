@@ -14,18 +14,23 @@ namespace Chakad.Pipeline
         /// <param name="handles"></param>
         /// <returns></returns>
         public static Configure Order(this Configure configure, Type type, List<Type> handles)
-            //where T : IDomainEvent 
-            //where THandler : IWantToHandleEvent<T>
+        //where T : IDomainEvent 
+        //where THandler : IWantToHandleEvent<T>
         {
             OrderConfiger.SetOrder(type, handles);
             return configure;
         }
 
-        public static Configure SetContainer(this Configure configure,ContainerBuilder containerBuilder = null)
+
+        public static Configure SetContainer(this Configure configure, IChakadContainer container)
         {
-            ChakadContainer.Run(containerBuilder);
+            ChakadContainer.Run(container);
             return configure;
         }
-
+        public static Configure SetDefaultContainer(this Configure configure)
+        {
+            ChakadContainer.Run(new DefaultContainer());
+            return configure;
+        }
     }
 }

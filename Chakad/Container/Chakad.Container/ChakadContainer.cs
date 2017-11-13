@@ -82,23 +82,22 @@ namespace Chakad.Container
 
         }
 
-        internal static void Run(ContainerBuilder containerBuilder = null)
+        private static IChakadContainer _container;
+        internal static void Run(IChakadContainer container )
         {
+
             Initialize();
 
-            if (containerBuilder == null)
-                containerBuilder = new ContainerBuilder();
-            
-            containerBuilder.RegisterTypes(CommandHandlersRepository.Keys.ToArray());
-            containerBuilder.RegisterTypes(CommandHandlersRepository.Values.ToArray());
+            _container = container;
 
-            containerBuilder.RegisterTypes(QueryHandlersRepository.Keys.ToArray());
-            containerBuilder.RegisterTypes(QueryHandlersRepository.Values.ToArray());
-            
-            containerBuilder.RegisterTypes(EventSubscribers.Keys.ToArray());
-            containerBuilder.RegisterTypes(EventSubscribers.Values.SelectMany(list => list).ToArray());
+            _container.RegisterTypes(CommandHandlersRepository.Keys.ToArray());
+            _container.RegisterTypes(CommandHandlersRepository.Values.ToArray());
 
-            Autofac = containerBuilder.Build();
+            _container.RegisterTypes(QueryHandlersRepository.Keys.ToArray());
+            _container.RegisterTypes(QueryHandlersRepository.Values.ToArray());
+
+            _container.RegisterTypes(EventSubscribers.Keys.ToArray());
+            _container.RegisterTypes(EventSubscribers.Values.SelectMany(list => list).ToArray());
         }
         internal static void RegisterMessageHandlers(Type type)
         {
@@ -124,7 +123,6 @@ namespace Chakad.Container
             else if (customAttributes.Any(attribute => attribute.GetType() == typeof(ThisIsTheBaseHandlerForQueryObjectAttribute)))
                 QueryHandlersRepository[genericArguments] = type;
         }
-        private static ILifetimeScope _autofac;
         private static readonly string _autofacScopeName = "chakad_pipeline";
 
         internal static string AutofacScopeName
@@ -137,8 +135,7 @@ namespace Chakad.Container
 
         internal static ILifetimeScope Autofac
         {
-            private set { _autofac = value; }
-            get { return _autofac; }
+            get { return _container.Container; }
         }
     }
 }

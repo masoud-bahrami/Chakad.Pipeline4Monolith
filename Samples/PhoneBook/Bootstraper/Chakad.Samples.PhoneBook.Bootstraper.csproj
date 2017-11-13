@@ -45,9 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstraper.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Chakad\Container\Chakad.Container\Chakad.Container.csproj">
+      <Project>{D6D9D203-AAF0-4C30-A07F-394BBB002129}</Project>
+      <Name>Chakad.Container</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Chakad\Core\Chakad.Core.csproj">
       <Project>{AE9C8299-4B7D-4BC4-8B8C-C4046E5D094C}</Project>
       <Name>Chakad.Core</Name>
