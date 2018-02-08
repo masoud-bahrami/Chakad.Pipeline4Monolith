@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Chakad\Core\Chakad.Core.csproj">
+      <Project>{AE9C8299-4B7D-4BC4-8B8C-C4046E5D094C}</Project>
+      <Name>Chakad.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Chakad\Pipeline\Core\Chakad.Pipeline.Core.csproj">
       <Project>{275E7E62-DA5F-4128-99C0-CC7BEEA140C1}</Project>
       <Name>Chakad.Pipeline.Core</Name>

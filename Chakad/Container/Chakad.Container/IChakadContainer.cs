@@ -29,7 +29,7 @@ namespace Chakad.Container
             _containerBuilder.RegisterTypes(types);
         }
 
-        private IContainer _container;
+        private static IContainer _container;
 
         public IContainer Container
         {

@@ -34,5 +34,10 @@ namespace Chakad.MessageHandler.CommandHandlers
                 Succeeded = true
             };
         }
+
+        public override async Task<bool> CheckAccessPolicy(StartActivityCommand message)
+        {
+            return true;
+        }
     }
 }

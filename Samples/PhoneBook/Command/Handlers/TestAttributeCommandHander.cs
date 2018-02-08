@@ -12,5 +12,10 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
             return new ChakadResult();
 
         }
+
+        public override async Task<bool> CheckAccessPolicy(TestAttributeCommand message)
+        {
+            return true;
+        }
     }
 }

@@ -15,13 +15,13 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
         }
         public override async Task<UpdateContactResult> Execute(UpdateContact message)
         {
-            
+
             var contact = new Contact
             {
                 FirstName = message.FirstName,
                 LastName = message.LastName,
                 Address = message.Address,
-                Id =message.Id
+                Id = message.Id
             };
 
             ContactRepository.Update(contact);
@@ -30,6 +30,11 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
             {
                 Id = contact.Id
             };
+        }
+
+        public override async Task<bool> CheckAccessPolicy(UpdateContact message)
+        {
+            return true;
         }
     }
 }

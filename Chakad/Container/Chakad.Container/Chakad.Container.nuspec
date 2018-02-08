@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Chakad.Container</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <title>Chakad.Container</title>
     <authors>Masoud Bahrami</authors>
     <owners>Masoud Bahrami</owners>
@@ -16,7 +16,7 @@
     <copyright>Copyright 2017</copyright>
     <tags>Tag1 Tag2</tags>
 	<dependencies>
-		<dependency id="Autofac " version="4.6.1.0" />
+		<dependency id="Autofac " version="4.6.2.0" />
   </dependencies>
   </metadata>
 </package>

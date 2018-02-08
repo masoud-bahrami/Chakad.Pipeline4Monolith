@@ -51,9 +51,14 @@
     <Compile Include="Attributes\IHaveNotAnyPolicyAttribute.cs" />
     <Compile Include="Attributes\ThisIsTheBaseHandlerForQueryObjectAttribute.cs" />
     <Compile Include="Attributes\ThisIsTheBaseHandlerForCommandObjectAttribute.cs" />
+    <Compile Include="Exceptions\ChakadNotAccessPolicyException.cs" />
+    <Compile Include="Exceptions\ChakadMessageViolationPolicyException.cs" />
+    <Compile Include="Exceptions\ChakadObjectInitializationFieldException.cs" />
     <Compile Include="Exceptions\ChakadPipelineTimeoutException.cs" />
     <Compile Include="IQueryEngeen.cs" />
     <Compile Include="MessageHandler\IWantToHandleThisQuery.cs" />
+    <Compile Include="Options\ChakadMessageProperty.cs" />
+    <Compile Include="Options\GuardAgainstMessage.cs" />
     <Compile Include="Query\IBusinessQuery.cs" />
     <Compile Include="Query\IQuery.cs" />
     <Compile Include="Query\QueryResult.cs" />

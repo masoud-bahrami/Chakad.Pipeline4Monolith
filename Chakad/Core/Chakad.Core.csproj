@@ -46,6 +46,8 @@
     <Compile Include="Attributes\NoEnumerationAttribute.cs" />
     <Compile Include="Attributes\NotNullAttribute.cs" />
     <Compile Include="Attributes\TimeToBeReceivedAttribute.cs" />
+    <Compile Include="ChakadFieldType.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Guard.cs" />
     <Compile Include="PathHelper.cs" />
     <Compile Include="TypeHelper.cs" />

@@ -6,26 +6,34 @@ using System.Text;
 using System.Threading.Tasks;
 using Chakad.Core;
 using Chakad.Pipeline.Core.Attributes;
+using Chakad.Pipeline.Core.Exceptions;
 using Chakad.Pipeline.Core.Message;
+using Chakad.Pipeline.Core.Options;
 
 namespace Chakad.Pipeline.Core.MessageHandler
 {
     public abstract class MessageHandlerBase<T, TOut> :
         IHandleMessage
         where T : class, IMessageInterface
-        where TOut : class, IChakadResult, new()
+        where TOut : class, IChakadResult
     {
         public IPipeline Pipeline { get; set; }
 
         public virtual string Handle(T message)
         {
+            var errorMessage = "";
+            GuardAgainstMessage.CanCheckInToPipeline(message, ref errorMessage);
+
             //TODO some processing goes here
-            var res = new StringBuilder();
-            GuardAgainstMessagePolicy(ref res, message);
-            return res.ToString();
+            //var res = new StringBuilder();
+            //GuardAgainstMessagePolicy(ref res, message);
+            //return res.ToString();
+            return errorMessage;
         }
 
         public abstract Task<TOut> Execute(T message);
+
+        public abstract Task<bool> CheckAccessPolicy(T message);
 
         protected async Task<TOut> InternalHandle(T message)
         {
@@ -34,14 +42,11 @@ namespace Chakad.Pipeline.Core.MessageHandler
             var result = Handle(message);
 
             if (!string.IsNullOrEmpty(result))
-            {
-                var chakadResult = new ChakadResult
-                {
-                    Succeeded = false,
-                    Message = result
-                };
-                return chakadResult as TOut;
-            }
+                throw new ChakadMessageViolationPolicyException(result);
+
+            var hasAccess = await CheckAccessPolicy(message);
+            if (!hasAccess)
+                throw new ChakadNotAccessPolicyException("You dont have access to do this operations!");
 
             var execute = await Execute(message);
             return execute;

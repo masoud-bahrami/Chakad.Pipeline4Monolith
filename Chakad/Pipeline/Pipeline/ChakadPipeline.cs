@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Chakad.Container;
+using Chakad.Core.Extensions;
 using Chakad.Pipeline.Core;
 using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Event;
@@ -56,7 +57,7 @@ namespace Chakad.Pipeline
                 throw new ChakadPipelineNotFoundHandler(@"Not found handler for {0}", command);
 
             if (timeout == null)
-                timeout = new TimeSpan(0, 0, 0,0,500);
+                timeout = new TimeSpan(0, 0, 0, 0, 500);
 
             if (action == null)
             {
@@ -73,7 +74,7 @@ namespace Chakad.Pipeline
             using (var scope = ChakadContainer.Autofac.BeginLifetimeScope(ChakadContainer.AutofacScopeName))
             {
                 var handler = scope.ResolveOptional(eventHandler);
-                
+
                 TOut result = null;
 
                 await policy.ExecuteAsync(async () =>
@@ -101,7 +102,8 @@ namespace Chakad.Pipeline
                 return new TOut
                 {
                     Succeeded = false,
-                    AggregatedExceptions = task1.Exception
+                    AggregatedExceptions = task1.Exception,
+                    Message = task1.Exception.GetaAllMessages()
                 };
 
             var task = await task1;

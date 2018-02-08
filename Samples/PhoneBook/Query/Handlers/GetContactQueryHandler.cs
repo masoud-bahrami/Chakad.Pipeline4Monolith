@@ -28,5 +28,10 @@ namespace Chakad.Samples.PhoneBook.QueryHandlers
                 }
             };
         }
+
+        public override async Task<bool> CheckAccessPolicy(GetContactQuery message)
+        {
+            return true;
+        }
     }
 }

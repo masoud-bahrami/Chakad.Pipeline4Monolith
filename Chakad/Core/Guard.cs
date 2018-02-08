@@ -111,5 +111,91 @@ namespace Chakad.Core
         {
             return !string.IsNullOrEmpty(toString) && toString.Length <= maximumLength;
         }
+
+        private static readonly object Obj = new object();
+
+        private delegate bool GuardAgainst(object value);
+        private static GuardAgainst _guardAgainst;
+
+        public static bool AgainstNumber(object value)
+        {
+            if (!AgainstNotNull(value))
+                return false;
+            long res;
+            return long.TryParse(value.ToString(), out res);
+        }
+        public static bool AgainstDefaultNumber(object value)
+        {
+            if (!AgainstNotNull(value))
+                return false;
+
+            long res;
+            if (long.TryParse(value.ToString(), out res))
+            {
+                return res != default(long);
+            }
+            return false;
+        }
+        public static bool AgainstString(object value)
+        {
+            return !string.IsNullOrWhiteSpace(value?.ToString());
+        }
+        public static bool AgainstDate(object value)
+        {
+            if (!AgainstNotNull(value))
+                return false;
+            DateTime res;
+            return DateTime.TryParse(value.ToString(), out res);
+        }
+        public static bool AgainstCahr(object value)
+        {
+            if (!AgainstNotNull(value))
+                return false;
+            char res;
+            return char.TryParse(value.ToString(), out res);
+        }
+        public static bool AgainstBoolean(object value)
+        {
+            if (!AgainstNotNull(value))
+                return false;
+            bool res;
+            return bool.TryParse(value.ToString(), out res);
+        }
+        public static bool AgainstNotNull(object value)
+        {
+            return value != null;
+        }
+        public static bool Against(ChakadFieldType fieldType, object value)
+        {
+            lock (Obj)
+            {
+                switch (fieldType)
+                {
+                    case ChakadFieldType.Number:
+                        _guardAgainst = AgainstNumber;
+                        break;
+                    case ChakadFieldType.DefaultNumber:
+                        _guardAgainst = AgainstDefaultNumber;
+                        break;
+                    case ChakadFieldType.String:
+                        _guardAgainst = AgainstString;
+                        break;
+                    case ChakadFieldType.Date:
+                        _guardAgainst = AgainstDate;
+                        break;
+                    case ChakadFieldType.Char:
+                        _guardAgainst = AgainstCahr;
+                        break;
+                    case ChakadFieldType.Boolean:
+                        _guardAgainst = AgainstBoolean;
+                        break;
+                    case ChakadFieldType.Object:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(fieldType), fieldType, null);
+                }
+                return _guardAgainst != null && _guardAgainst(value);
+            }
+        }
     }
 }

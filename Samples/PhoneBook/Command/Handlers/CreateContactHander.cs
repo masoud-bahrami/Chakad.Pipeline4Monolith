@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Samples.PhoneBook.Commands;
 using Chakad.Samples.PhoneBook.Model;
@@ -12,7 +11,7 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
 
         public CreateContactHander()
         {
-            
+
         }
         public CreateContactHander(IContactRepository contactRepository)
         {
@@ -36,6 +35,50 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
             {
                 Id = contact.Id
             };
+        }
+
+        public override async Task<bool> CheckAccessPolicy(CreateContact message)
+        {
+            return true;
+        }
+    }
+
+    public class CreateContactWithChakadMessagPropertyHander :
+        IWantToHandleThisRequest<CreateContactWithChakadMessagProperty, CreateContactResult>
+    {
+        public IContactRepository ContactRepository;
+
+        public CreateContactWithChakadMessagPropertyHander()
+        {
+
+        }
+        public CreateContactWithChakadMessagPropertyHander(IContactRepository contactRepository)
+        {
+            ContactRepository = contactRepository;
+        }
+
+        public override async Task<CreateContactResult> Execute(CreateContactWithChakadMessagProperty message)
+        {
+            var lastId = ContactRepository.GetLastId();
+            var contact = new Contact
+            {
+                FirstName = message.FirstName.Value,
+                LastName = message.LastName.Value,
+                Address = message.Address,
+                Id = ++lastId
+            };
+
+            ContactRepository.Add(contact);
+
+            return new CreateContactResult
+            {
+                Id = contact.Id
+            };
+        }
+
+        public override async Task<bool> CheckAccessPolicy(CreateContactWithChakadMessagProperty message)
+        {
+            return true;
         }
     }
 }
