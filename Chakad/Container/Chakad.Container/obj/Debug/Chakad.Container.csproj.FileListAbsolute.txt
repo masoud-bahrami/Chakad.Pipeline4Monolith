@@ -20,3 +20,7 @@ C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.csprojResolveAssemblyReference.cache
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.dll
 C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\obj\Debug\Chakad.Container.pdb
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Resource\Resource.resx
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Resource\Resource.Designer.cs
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\Resource\Resource.fa-Ir.resx
+C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Chakad\Container\Chakad.Container\bin\Debug\fa-Ir\Chakad.Pipeline.Core.resources.dll

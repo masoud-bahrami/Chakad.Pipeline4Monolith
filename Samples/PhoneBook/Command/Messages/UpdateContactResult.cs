@@ -1,4 +1,6 @@
-﻿using Chakad.Core;
+﻿using System;
+using Chakad.Core;
+using Chakad.Pipeline.Core.Attributes;
 using Chakad.Pipeline.Core.Command;
 using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.Options;
@@ -38,10 +40,29 @@ namespace Chakad.Samples.PhoneBook.Commands
 
 
             Address =address;
+
+            Address6 = 9;
         }
         public ChakadMessageProperty<string> FirstName { get; set; }
         public ChakadMessageProperty<string> LastName { get; set; }
+        [ChakadRequired("آدرس")]
         public string Address { get; set; }
+        [ChakadMaxLengthAttribute(4,"آدرس1")]
+        public string Address1 { get; set; }
+        [ChakadStringLength(5,"آدرس2")]
+        public string Address2 { get; set; }
+        [ChakadStringRequiredAttribute("آدرس3")]
+        public string Address3 { get; set; }
+        [ChakadMinLengthAttribute(10,"آدرس4")]
+        public string Address4 { get; set; }
+        [ChakadGuidRequiredAttribute("آدرس5")]
+        public Guid Address5 { get; set; }
+        [RangeAttributeAttribute(10,30,"آدرس6")]
+        public int Address6 { get; set; }
+        [ChakadRequiredAndNotDefaultNumberAttribute("آدرس 7")]
+        public decimal Address7 { get; set; }
+        [ChakadRequiredAndNotDefaultNumberAttribute("آدرس 8")]
+        public int Address8 { get; set; }
     }
     public class CreateContactResult : ChakadResult
     {

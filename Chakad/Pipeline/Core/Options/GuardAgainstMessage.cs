@@ -73,7 +73,8 @@ namespace Chakad.Pipeline.Core.Options
         {
             var label = propertyInfo.PropertyType.GetProperties().FirstOrDefault(x => x.Name.ToLower() == "title");
             var labelTitle = (string)label.GetValue(propertyValue);
-            return Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains("fa-ir") ? $"فیلد {labelTitle} نمی تواند خالی باشد" : $"The {labelTitle} can not be empy!";
+            return Thread.CurrentThread.CurrentCulture.Name.ToLower().Contains("fa-ir")
+                ? $"فیلد {labelTitle} نمی تواند خالی باشد" : $"The {labelTitle} can not be empy!";
         }
     }
 

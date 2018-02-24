@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Chakad.Samples.PhoneBook.Commands;
 using Chakad.Samples.PhoneBook.Queries;
@@ -37,6 +39,9 @@ namespace Chakad.Tests
         public async Task CreateContactWithChakadMessagPropertyTest()
         {
             Initializer(false);
+            CultureInfo ci = new CultureInfo("fa-Ir");
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
 
             var contact = await SendCommand(new CreateContactWithChakadMessagProperty(
                 firstName: "",

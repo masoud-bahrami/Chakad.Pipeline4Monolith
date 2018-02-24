@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chakad\Pipeline\Core\Chakad.Pipeline.Core.csproj">
-      <Project>{275E7E62-DA5F-4128-99C0-CC7BEEA140C1}</Project>
+      <Project>{275e7e62-da5f-4128-99c0-cc7beea140c1}</Project>
       <Name>Chakad.Pipeline.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Samples\PhoneBook\Bootstraper\Chakad.Samples.PhoneBook.Bootstraper.csproj">

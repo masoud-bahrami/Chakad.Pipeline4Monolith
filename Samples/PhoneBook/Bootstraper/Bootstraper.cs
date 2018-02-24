@@ -46,7 +46,8 @@ namespace Chakad.Samples.PhoneBook.Bootstraper
             var container = new Container();
             container.RegisterRepository(iNeedSampleData);
 
-            Configure.With(ApplicationPath, "chakad").SetContainer(container);
+            Configure.With(ApplicationPath, "chakad")
+                .SetContainer(container);
 
             Container.Build();
         }

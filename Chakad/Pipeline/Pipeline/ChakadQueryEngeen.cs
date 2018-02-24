@@ -8,7 +8,6 @@ using Chakad.Pipeline.Core.Exceptions;
 using Chakad.Pipeline.Core.Options;
 using Chakad.Pipeline.Core.Query;
 using Polly;
-
 namespace Chakad.Pipeline
 {
     public class ChakadQueryEngeen : IQueryEngeen
@@ -25,7 +24,6 @@ namespace Chakad.Pipeline
             var task = res as Task<TOut>;
             return task?.Result;
         }
-
         public async Task<TOut> Run<TOut>(IBusinessQuery<TOut> query, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null)
             where TOut : QueryResult

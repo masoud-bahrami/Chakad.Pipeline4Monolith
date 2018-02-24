@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Chakad.Pipeline.Core</id>
-	<version>1.0.3</version>
+	<version>1.0.8.2</version>
     <title>Chakad.Pipeline.Core</title>
     <authors>Masoud Bahrami</authors>
     <owners>Masoud Bahrami</owners>
@@ -15,7 +15,7 @@
     <copyright>Copyright 2017</copyright>
     <tags>Command CommandDispatcher CQRS Pipeline Query QueryDispatcher Clean CleanArchitecture Onion OnionArchitecture MessagePipeline</tags>
 	<dependencies>
-   <dependency id="Chakad.Core " version="1.0.2" />
+   <dependency id="Chakad.Core " version="1.0.3" />
    </dependencies>
   </metadata>
 </package>
