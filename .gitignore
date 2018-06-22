@@ -1289,3 +1289,12 @@ testem.log
 Thumbs.db
 
 .bin
+
+*.nupkg
+*.nuspec
+
+.bin
+.obj
+
+.vs
+.idea

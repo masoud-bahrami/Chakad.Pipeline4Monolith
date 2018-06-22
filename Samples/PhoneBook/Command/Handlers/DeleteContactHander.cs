@@ -6,7 +6,7 @@ using Chakad.Samples.PhoneBook.Model;
 
 namespace Chakad.Samples.PhoneBook.CommandHandlers
 {
-    public class DeleteContactHander : IWantToHandleThisRequest<DeleteContact, ChakadResult>
+    public class DeleteContactHander : IWantToHandleThisCommand<DeleteContact, ChakadResult>
     {
         public IContactRepository ContactRepository;
 

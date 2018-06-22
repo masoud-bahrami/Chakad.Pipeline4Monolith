@@ -5,7 +5,7 @@ using Chakad.Samples.PhoneBook.Commands;
 
 namespace Chakad.Samples.PhoneBook.CommandHandlers
 {
-    public class TestAttributeCommandHander : IWantToHandleThisRequest<TestAttributeCommand, ChakadResult>
+    public class TestAttributeCommandHander : IWantToHandleThisCommand<TestAttributeCommand, ChakadResult>
     {
         public override async Task<ChakadResult> Execute(TestAttributeCommand message)
         {

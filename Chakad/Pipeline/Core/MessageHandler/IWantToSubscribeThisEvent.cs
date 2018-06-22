@@ -2,13 +2,13 @@
 
 namespace Chakad.Pipeline.Core.MessageHandler
 {
-    public interface IWantToHandleEvent<in T> : IWantToHandleThisEventInterface where T :
+    public interface IWantToSubscribeThisEvent<in T> : IWantToSubscribeThisEventInterface where T :
         IDomainEvent
     {
         void Handle(T domainEvent);
     }
 
-    public interface IWantToHandleThisEventInterface
+    public interface IWantToSubscribeThisEventInterface
     {
     }
 }

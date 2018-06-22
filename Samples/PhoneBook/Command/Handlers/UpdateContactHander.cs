@@ -5,7 +5,7 @@ using Chakad.Samples.PhoneBook.Model;
 
 namespace Chakad.Samples.PhoneBook.CommandHandlers
 {
-    public class UpdateContactHander : IWantToHandleThisRequest<UpdateContact, UpdateContactResult>
+    public class UpdateContactHander : IWantToHandleThisCommand<UpdateContact, UpdateContactResult>
     {
         public IContactRepository ContactRepository;
 

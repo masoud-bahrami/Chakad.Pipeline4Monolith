@@ -33,7 +33,7 @@ namespace Chakad.Pipeline
         /// <param name="filterByDll"></param>
         public static Configure With(string assemblyPath,string assemblyNameContain = "",bool filterByDll = true)
         {
-            var types = TypeHelper.GetTypes(assemblyPath,assemblyNameContain,filterByDll, typeof(IWantToHandleThisEventInterface)
+            var types = TypeHelper.GetTypes(assemblyPath,assemblyNameContain,filterByDll, typeof(IWantToSubscribeThisEventInterface)
                 , typeof(IHandleMessage));
             With(types);
             return Instance;
@@ -46,7 +46,7 @@ namespace Chakad.Pipeline
         {
             foreach (var type in types)
             {
-                if (type.IsImplementInterface(typeof(IWantToHandleThisEventInterface)))
+                if (type.IsImplementInterface(typeof(IWantToSubscribeThisEventInterface)))
                 {
                     RegisterSubscribers(type);
                 }
@@ -69,7 +69,7 @@ namespace Chakad.Pipeline
         public static Configure With(params Assembly[] assemblies)
         {
             var types = TypeHelper.GetTypes(assemblies.ToList(),
-                typeof(IWantToHandleThisEventInterface)
+                typeof(IWantToSubscribeThisEventInterface)
                 , typeof(IHandleMessage));
             With(types);
 
@@ -85,7 +85,7 @@ namespace Chakad.Pipeline
             var handler =
                 type.GetInterfaces()
                     .ToList()
-                    .FirstOrDefault(type1 => type1 != typeof(IWantToHandleThisEventInterface));
+                    .FirstOrDefault(type1 => type1 != typeof(IWantToSubscribeThisEventInterface));
 
             if (handler == null || !handler.IsGenericType) return;
 

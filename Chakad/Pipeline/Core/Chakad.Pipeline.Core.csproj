@@ -70,7 +70,7 @@
     <Compile Include="Exceptions\ChakadPipelineNotFoundHandler.cs" />
     <Compile Include="MessageHandler\IHandleMessage.cs" />
     <Compile Include="Command\IChakadRequest.cs" />
-    <Compile Include="MessageHandler\IWantToHandleThisRequest.cs" />
+    <Compile Include="MessageHandler\IWantToHandleThisCommand.cs" />
     <Compile Include="Message\IMessageInterface.cs" />
     <Compile Include="Message\IChakadResult.cs" />
     <Compile Include="MessageHandler\MessageHandlerBase.cs" />
@@ -81,7 +81,7 @@
     <Compile Include="Options\SendOptions.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Event\IDomainEvent.cs" />
-    <Compile Include="MessageHandler\IWantToHandleEvent.cs" />
+    <Compile Include="MessageHandler\IWantToSubscribeThisEvent.cs" />
     <Compile Include="Message\IMessage.cs" />
     <Compile Include="ICommandPipeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

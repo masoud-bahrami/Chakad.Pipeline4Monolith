@@ -5,7 +5,7 @@ using Chakad.Samples.PhoneBook.Model;
 
 namespace Chakad.Samples.PhoneBook.CommandHandlers
 {
-    public class CreateContactHander : IWantToHandleThisRequest<CreateContact, CreateContactResult>
+    public class CreateContactHander : IWantToHandleThisCommand<CreateContact, CreateContactResult>
     {
         public IContactRepository ContactRepository;
 
@@ -44,7 +44,7 @@ namespace Chakad.Samples.PhoneBook.CommandHandlers
     }
 
     public class CreateContactWithChakadMessagPropertyHander :
-        IWantToHandleThisRequest<CreateContactWithChakadMessagProperty, CreateContactResult>
+        IWantToHandleThisCommand<CreateContactWithChakadMessagProperty, CreateContactResult>
     {
         public IContactRepository ContactRepository;
 
