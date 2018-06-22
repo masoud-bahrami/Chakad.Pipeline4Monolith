@@ -3,14 +3,7 @@ using System.Collections.Generic;
 
 namespace Chakad.Pipeline.Core.Query
 {
-    public interface IChakadListQueryResult : IBusinessQueryResult
-    {
-        int TotalCount { get; set; }
-        IEnumerable GetItems();
-    }
-
-
-    public class ChakadListQueryResult<T> : QueryResult, IChakadListQueryResult
+    public class ChakadQueryResult<T> : QueryResult, IBusinessQueryResult
     {
         private int _totalCount = -1;
         public ICollection<T> Entities { get; set; }

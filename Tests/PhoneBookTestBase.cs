@@ -11,11 +11,11 @@ namespace Chakad.Tests
 {
     public class PhoneBookTestBase
     {
-        private IPipeline pipeline
+        private ICommandPipeline pipeline
         {
             get { return Bootstraper.Pipeline; }
         }
-        private IQueryEngeen queryEngeen
+        private IQueryPipeline queryEngeen
         {
             get { return Bootstraper.QueryEngeen; }
         }
@@ -27,15 +27,15 @@ namespace Chakad.Tests
         public async Task<TOut> SendCommand<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult ,new ()
         {
-            var send =  await pipeline.Send(command, timeout, action, options);
+            var send =  await pipeline.StartProcess(command, timeout, action, options);
             return send;
         }
 
         public async Task<TOut> RunQuery<TOut> (IBusinessQuery<TOut> query, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null)
-            where TOut :QueryResult
+            where TOut :class
         {
-            var task = await queryEngeen.Run(query, timeout, action, options);
+            var task = await queryEngeen.StartProcess(query, timeout, action, options);
             return task;
         }
     }

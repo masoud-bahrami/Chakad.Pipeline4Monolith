@@ -11,11 +11,12 @@ using Chakad.Pipeline.Core.Exceptions;
 using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Options;
+using Chakad.Pipeline.Core.Query;
 using Polly;
 
 namespace Chakad.Pipeline
 {
-    public class ChakadPipeline : IPipeline
+    public class ChakadCommandPipeline : ICommandPipeline
     {
         public async Task Subscribe<T>(IWantToHandleEvent<T> eventHandler, Type type)
             where T : IDomainEvent
@@ -42,8 +43,9 @@ namespace Chakad.Pipeline
             ChakadContainer.UnRegister(type1, key);
         }
 
-        public async Task<TOut> Send<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
-            Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult, new()
+        public async Task<TOut> StartProcess<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
+            Action<Exception, TimeSpan> action = null, SendOptions options = null) 
+            where TOut : ChakadResult, new()
         {
             var commandType = command.GetType();
 

@@ -18,9 +18,10 @@ namespace Chakad.Pipeline.Core.MessageHandler
     public abstract class MessageHandlerBase<T, TOut> :
         IHandleMessage
         where T : class, IMessageInterface
-        where TOut : class, IChakadResult
+        where TOut : class
+        //, IChakadResult
     {
-        public IPipeline Pipeline { get; set; }
+        public ICommandPipeline Pipeline { get; set; }
 
         public virtual string Handle(T message)
         {

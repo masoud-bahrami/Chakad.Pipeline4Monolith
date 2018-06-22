@@ -88,12 +88,12 @@ namespace Chakad.Tests
                 Id = newContact.Id
             });
 
-            Assert.AreNotEqual(null, result.Entity);
+            Assert.AreNotEqual(null, result);
 
-            Assert.AreEqual(newContact.Id, result.Entity.Id);
-            Assert.AreEqual("مسعود", result.Entity.FirstName);
-            Assert.AreEqual("بهرامی", result.Entity.LastName);
-            Assert.AreEqual("بهبهان", result.Entity.Address);
+            Assert.AreEqual(newContact.Id, result.Id);
+            Assert.AreEqual("مسعود", result.FirstName);
+            Assert.AreEqual("بهرامی", result.LastName);
+            Assert.AreEqual("بهبهان", result.Address);
         }
 
         [TestMethod]
@@ -140,12 +140,12 @@ namespace Chakad.Tests
                 Id = contactQueryResult.Id
             });
 
-            Assert.IsNotNull(contact.Entity);
+            Assert.IsNotNull(contact);
 
-            Assert.AreEqual(contactQueryResult.Id, contact.Entity.Id);
-            Assert.AreEqual(contactQueryResult.FirstName, contact.Entity.FirstName);
-            Assert.AreEqual(contactQueryResult.LastName, contact.Entity.LastName);
-            Assert.AreEqual(contactQueryResult.Address, contact.Entity.Address);
+            Assert.AreEqual(contactQueryResult.Id, contact.Id);
+            Assert.AreEqual(contactQueryResult.FirstName, contact.FirstName);
+            Assert.AreEqual(contactQueryResult.LastName, contact.LastName);
+            Assert.AreEqual(contactQueryResult.Address, contact.Address);
         }
         [TestMethod]
         public async Task MessagePolicyTest()

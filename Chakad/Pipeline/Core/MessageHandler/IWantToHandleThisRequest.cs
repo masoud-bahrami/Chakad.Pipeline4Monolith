@@ -12,9 +12,9 @@ namespace Chakad.Pipeline.Core.MessageHandler
         where T : class, IChakadRequest<TOut>
         where TOut : class, IChakadResult, new()
     {
-        private IPipeline _pipeline;
+        private ICommandPipeline _pipeline;
 
-        protected IPipeline Pipeline => _pipeline ?? (_pipeline = ServiceLocator<IPipeline>.Resolve());
+        protected ICommandPipeline Pipeline => _pipeline ?? (_pipeline = ServiceLocator<ICommandPipeline>.Resolve());
 
         public  async Task<TOut> Handle(IChakadRequest<TOut> message)
         {

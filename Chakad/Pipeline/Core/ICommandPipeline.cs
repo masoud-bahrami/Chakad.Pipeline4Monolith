@@ -10,7 +10,7 @@ namespace Chakad.Pipeline.Core
     /// <summary>
     /// 
     /// </summary>
-    public interface IPipeline
+    public interface ICommandPipeline
     {
         ///// <summary>
         ///// 
@@ -25,7 +25,7 @@ namespace Chakad.Pipeline.Core
         /// </summary>
         /// <param name="command">The message to send.</param>
         /// <param name="options">The options for the send.</param>
-        Task<TOut> Send<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
+        Task<TOut> StartProcess<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null) where TOut : ChakadResult,new();
 
         ///// <summary>

@@ -5,7 +5,7 @@ namespace Chakad.Pipeline.Core.Query
     public interface IBusinessQuery : IMessageInterface
     {
     }
-    public interface IBusinessQuery<T> : IBusinessQuery, IQuery<T> where T : IBusinessQueryResult
+    public interface IBusinessQuery<T> : IBusinessQuery, IQuery<T> 
     {
     }
 

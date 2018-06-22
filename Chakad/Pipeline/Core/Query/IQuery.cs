@@ -7,7 +7,7 @@ namespace Chakad.Pipeline.Core.Query
         //TODO
     }
 
-    public interface IQuery<TResponse> : IQuery where TResponse : IChakadResult
+    public interface IQuery<TResponse> : IQuery 
     {
     }
 

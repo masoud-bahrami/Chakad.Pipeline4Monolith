@@ -63,7 +63,7 @@
     <Compile Include="ChakadRequestExtensions.cs" />
     <Compile Include="ConfigureExtensions.cs" />
     <Compile Include="Configure.cs" />
-    <Compile Include="ChakadPipeline.cs" />
+    <Compile Include="ChakadCommandPipeline.cs" />
     <Compile Include="OrderConfiger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

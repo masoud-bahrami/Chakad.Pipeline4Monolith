@@ -1,5 +1,4 @@
-﻿using Autofac;
-using Chakad.Core;
+﻿using Chakad.Core;
 using Chakad.Pipeline;
 using Chakad.Pipeline.Core;
 using Chakad.Sample.PhoneBook.Repository;
@@ -23,13 +22,13 @@ namespace Chakad.Samples.PhoneBook.Bootstraper
         }
         #endregion
         #region IPipeline
-        private static IPipeline _pipeline;
+        private static ICommandPipeline _pipeline;
 
-        public static IPipeline Pipeline => _pipeline ?? (_pipeline = ServiceLocator<IPipeline>.Resolve());
+        public static ICommandPipeline Pipeline => _pipeline ?? (_pipeline = ServiceLocator<ICommandPipeline>.Resolve());
         #endregion
         #region IQueryEngeen
-        private static IQueryEngeen _queryEngeen;
-        public static IQueryEngeen QueryEngeen => _queryEngeen ?? (_queryEngeen = ServiceLocator<IQueryEngeen>.Resolve());
+        private static IQueryPipeline _queryEngeen;
+        public static IQueryPipeline QueryEngeen => _queryEngeen ?? (_queryEngeen = ServiceLocator<IQueryPipeline>.Resolve());
         #endregion
 
 
@@ -54,8 +53,8 @@ namespace Chakad.Samples.PhoneBook.Bootstraper
 
         private static void RegisterDeendencies(bool iNeedSampleData)
         {
-            ServiceLocator<IPipeline>.Register(new ChakadPipeline());
-            ServiceLocator<IQueryEngeen>.Register(new ChakadQueryEngeen());
+            ServiceLocator<ICommandPipeline>.Register(new ChakadCommandPipeline());
+            ServiceLocator<IQueryPipeline>.Register(new QueryPipeline());
             ServiceLocator<IContactRepository>.Register(new ContactRepository(iNeedSampleData));
         }
         #endregion

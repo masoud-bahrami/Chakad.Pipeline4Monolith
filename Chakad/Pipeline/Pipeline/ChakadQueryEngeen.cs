@@ -10,11 +10,11 @@ using Chakad.Pipeline.Core.Query;
 using Polly;
 namespace Chakad.Pipeline
 {
-    public class ChakadQueryEngeen : IQueryEngeen
+    public class QueryPipeline : IQueryPipeline
     {
         async Task<TOut> InvokeMessageHandle<TOut>(IBusinessQuery<TOut> command, Type eventHandler,
             object instance)
-            where TOut : QueryResult
+            where TOut : class
         {
             var res = (from info in eventHandler.GetMethods()
                        where info.Name.ToLower() == "handle"
@@ -24,9 +24,9 @@ namespace Chakad.Pipeline
             var task = res as Task<TOut>;
             return task?.Result;
         }
-        public async Task<TOut> Run<TOut>(IBusinessQuery<TOut> query, TimeSpan? timeout = null,
+        public async Task<TOut> StartProcess<TOut>(IBusinessQuery<TOut> query, TimeSpan? timeout = null,
             Action<Exception, TimeSpan> action = null, SendOptions options = null)
-            where TOut : QueryResult
+            where TOut : class
         {
             var commandType = query.GetType();
 

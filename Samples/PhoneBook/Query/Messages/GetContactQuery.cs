@@ -2,14 +2,11 @@
 
 namespace Chakad.Samples.PhoneBook.Queries
 {
-    public class GetContactQuery : ChakadQuery<GetContactQueryResult>
+    public class GetContactQuery : ChakadQuery<ContactQueryResult>
     {
         public int Id { get; set; }
     }
-    public class GetContactQueryResult : ChakadQueryResult<ContactQueryResult>
-    {
-    }
-
+    
     public class ContactQueryResult
     {
         public int Id { get; set; }

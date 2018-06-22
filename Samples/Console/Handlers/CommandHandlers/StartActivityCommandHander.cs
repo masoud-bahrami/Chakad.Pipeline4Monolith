@@ -19,7 +19,7 @@ namespace Chakad.MessageHandler.CommandHandlers
             Console.WriteLine("Send  AnotherActivityCommand in StartActivityCommandHander");
 
             Thread.Sleep(1000);
-            var result = Pipeline.Send(new Messages.Command.AnotherActivityCommand
+            var result = Pipeline.StartProcess(new Messages.Command.AnotherActivityCommand
             {
                 Message = "message from StartActivityCommandChakadResult",
                 ActivityId = message.Id

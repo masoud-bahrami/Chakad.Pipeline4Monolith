@@ -28,7 +28,7 @@ namespace Chakad.Bootstraper
         #region ~ Private Mathodes ~
         private static void RegisterServices()
         {
-            ServiceLocator<IPipeline>.Register(new ChakadPipeline());
+            ServiceLocator<ICommandPipeline>.Register(new ChakadCommandPipeline());
         }
         private static async void RegisterEventSubscribers()
         {

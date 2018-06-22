@@ -5,7 +5,7 @@ using Chakad.Samples.PhoneBook.Queries;
 
 namespace Chakad.Samples.PhoneBook.QueryHandlers
 {
-    public class GetContactQueryHandler : IWantToHandleThisQuery<GetContactQuery, GetContactQueryResult>
+    public class GetContactQueryHandler : IWantToHandleThisQuery<GetContactQuery, ContactQueryResult>
     {
         public IContactRepository ContactRepository;
 
@@ -13,19 +13,16 @@ namespace Chakad.Samples.PhoneBook.QueryHandlers
         {
             ContactRepository = contactRepository;
         }
-        public override async Task<GetContactQueryResult> Execute(GetContactQuery message)
+        public override async Task<ContactQueryResult> Execute(GetContactQuery message)
         {
             var contact = ContactRepository.Get(message.Id);
 
-            return new GetContactQueryResult
+            return new ContactQueryResult
             {
-                Entity = new ContactQueryResult
-                {
-                    Id = contact.Id,
-                    FirstName = contact.FirstName,
-                    LastName = contact.LastName,
-                    Address = contact.Address
-                }
+                Id = contact.Id,
+                FirstName = contact.FirstName,
+                LastName = contact.LastName,
+                Address = contact.Address
             };
         }
 

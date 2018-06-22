@@ -56,7 +56,7 @@
     <Compile Include="Exceptions\ChakadMessageViolationPolicyException.cs" />
     <Compile Include="Exceptions\ChakadObjectInitializationFieldException.cs" />
     <Compile Include="Exceptions\ChakadPipelineTimeoutException.cs" />
-    <Compile Include="IQueryEngeen.cs" />
+    <Compile Include="IQueryPipeline.cs" />
     <Compile Include="MessageHandler\IWantToHandleThisQuery.cs" />
     <Compile Include="Options\ChakadMessageProperty.cs" />
     <Compile Include="Options\GuardAgainstMessage.cs" />
@@ -64,9 +64,7 @@
     <Compile Include="Query\IQuery.cs" />
     <Compile Include="Query\QueryResult.cs" />
     <Compile Include="Query\ChakadQuery.cs" />
-    <Compile Include="Query\ChakadQueryResult.cs" />
     <Compile Include="Query\ChakadListQueryResult.cs" />
-    <Compile Include="Query\ChakadListQuery.cs" />
     <Compile Include="Options\SubscribeOptions.cs" />
     <Compile Include="Options\UnsubscribeOptions.cs" />
     <Compile Include="Exceptions\ChakadPipelineNotFoundHandler.cs" />
@@ -85,7 +83,7 @@
     <Compile Include="Event\IDomainEvent.cs" />
     <Compile Include="MessageHandler\IWantToHandleEvent.cs" />
     <Compile Include="Message\IMessage.cs" />
-    <Compile Include="IPipeline.cs" />
+    <Compile Include="ICommandPipeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\Resource.Designer.cs">
       <AutoGen>True</AutoGen>

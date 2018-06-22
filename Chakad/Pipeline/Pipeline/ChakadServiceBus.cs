@@ -5,6 +5,6 @@ namespace Chakad.Pipeline
 {
     public static class ChakadServiceBus
     {
-        public static IPipeline Pipeline => ServiceLocator<IPipeline>.Resolve();
+        public static ICommandPipeline Pipeline => ServiceLocator<ICommandPipeline>.Resolve();
     }
 }

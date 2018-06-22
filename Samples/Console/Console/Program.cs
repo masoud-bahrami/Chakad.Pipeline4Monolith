@@ -11,7 +11,7 @@ namespace Chakad.Console
 {
     class Program
     {
-        private static IPipeline Pipeline => ChakadServiceBus.Pipeline;
+        private static ICommandPipeline Pipeline => ChakadServiceBus.Pipeline;
 
         static void Main()
         {
@@ -27,7 +27,7 @@ namespace Chakad.Console
             System.Console.WriteLine("Send Activity Command ");
             try
             {
-                Pipeline.Send(new StartActivityCommand1());
+                Pipeline.StartProcess(new StartActivityCommand1());
             }
             catch (ChakadPipelineNotFoundHandler exHandler)
             {
@@ -35,7 +35,7 @@ namespace Chakad.Console
             }
             
 
-            var res = Pipeline.Send(new StartActivityCommand
+            var res = Pipeline.StartProcess(new StartActivityCommand
             {
                 Message = "",
                 Id = Guid.NewGuid()
@@ -51,7 +51,7 @@ namespace Chakad.Console
                 System.Console.ForegroundColor = ConsoleColor.Magenta;
             }
 
-            res = Pipeline.Send(new StartActivityCommand
+            res = Pipeline.StartProcess(new StartActivityCommand
             {
                 Message = "",
                 Id = Guid.NewGuid()

@@ -7,7 +7,8 @@ namespace Chakad.Pipeline.Core.Command
     {
         //TODO
     }
-    public interface IChakadRequest<TResponse> : IChakadRequest where TResponse : IChakadResult
+    public interface IChakadRequest<TResponse> : IChakadRequest 
+        where TResponse : IChakadResult
     {
     }
 
