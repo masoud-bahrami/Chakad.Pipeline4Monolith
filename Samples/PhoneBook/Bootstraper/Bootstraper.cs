@@ -31,7 +31,6 @@ namespace Chakad.Samples.PhoneBook.Bootstraper
         public static IQueryPipeline QueryEngeen => _queryEngeen ?? (_queryEngeen = ServiceLocator<IQueryPipeline>.Resolve());
         #endregion
 
-
         public static void Run(bool iNeedSampleData = true)
         {
             RegisterDeendencies(iNeedSampleData);

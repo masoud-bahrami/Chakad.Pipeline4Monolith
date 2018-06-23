@@ -4,7 +4,7 @@ using Chakad.Pipeline.Core.MessageHandler;
 
 namespace Chakad.MessageHandler.EventSubscribers
 {
-    public class MyEventSubscriber1 : IWantToHandleEvent<MyDomainEvent>
+    public class MyEventSubscriber1 : IWantToSubscribeThisEvent<MyDomainEvent>
     {
         public void Handle(MyDomainEvent domainEvent)
         {

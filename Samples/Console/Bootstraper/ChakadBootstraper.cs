@@ -5,18 +5,21 @@ using Chakad.MessageHandler.EventSubscribers;
 using Chakad.Messages.Events;
 using Chakad.Pipeline;
 using Chakad.Pipeline.Core;
+using Chakavak.Container;
 
 namespace Chakad.Bootstraper
 {
     public static class ChakadBootstraper
     {
+        private static ChakadContainer _chakavakContainer;
+
         public static void Run()
         {
             Console.WriteLine("Start Bootstrap Chakad");
             RegisterServices();
-            
-            Configure.With(PathHelper.ExecutionPath)
-                   .Order(typeof(MyDomainEvent), ConfigOreders());
+            ConfigContainer();
+            ConfigChakadPipeline();
+            BuildContainer();
             Console.WriteLine("End Bootstrap Chakad");
         }
 
@@ -26,6 +29,20 @@ namespace Chakad.Bootstraper
         }
 
         #region ~ Private Mathodes ~
+        private static void ConfigChakadPipeline()
+        {
+            Configure.With(PathHelper.ExecutionPath)
+                   .Order(typeof(MyDomainEvent), ConfigOreders()).SetContainer(_chakavakContainer);
+        }
+        private static void ConfigContainer()
+        {
+            _chakavakContainer = new ChakadContainer()
+                .RegisterIdentity();
+        }
+        private static void BuildContainer()
+        {
+            ChakadContainer.Build();
+        }
         private static void RegisterServices()
         {
             ServiceLocator<ICommandPipeline>.Register(new ChakadCommandPipeline());

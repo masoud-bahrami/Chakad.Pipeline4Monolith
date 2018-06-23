@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,9 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChakadBootstraper.cs" />
+    <Compile Include="ChakadContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Chakad\Container\Chakad.Container\Chakad.Container.csproj">
+      <Project>{d6d9d203-aaf0-4c30-a07f-394bbb002129}</Project>
+      <Name>Chakad.Container</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Handlers\Chakad.MessageHandler.csproj">
       <Project>{D76B9C2D-F57B-43C1-95A9-89B48E91FEAD}</Project>
       <Name>Chakad.MessageHandler</Name>

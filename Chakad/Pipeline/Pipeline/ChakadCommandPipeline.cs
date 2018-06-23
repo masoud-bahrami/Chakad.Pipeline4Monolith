@@ -18,7 +18,7 @@ namespace Chakad.Pipeline
 {
     public class ChakadCommandPipeline : ICommandPipeline
     {
-        public async Task Subscribe<T>(IWantToHandleEvent<T> eventHandler, Type type)
+        public async Task Subscribe<T>(IWantToSubscribeThisEvent<T> eventHandler, Type type)
             where T : IDomainEvent
         {
             if (type == null || eventHandler == null)
@@ -31,7 +31,7 @@ namespace Chakad.Pipeline
             ChakadContainer.Register(type1, key);
         }
 
-        public async Task UnSubscribe<T>(IWantToHandleEvent<T> eventHandler, Type myEvent) where T : IDomainEvent
+        public async Task UnSubscribe<T>(IWantToSubscribeThisEvent<T> eventHandler, Type myEvent) where T : IDomainEvent
         {
             if (myEvent == null || eventHandler == null)
                 return;
@@ -135,7 +135,7 @@ namespace Chakad.Pipeline
                     {
                         var handler = scope.ResolveOptional(order);
 
-                        var concreteType = typeof(IWantToHandleEvent<>).MakeGenericType(order);
+                        var concreteType = typeof(IWantToSubscribeThisEvent<>).MakeGenericType(order);
 
                         await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { domainEvent });
                     }
@@ -148,7 +148,7 @@ namespace Chakad.Pipeline
                 {
                     var handler = scope.ResolveOptional(newInstance);
 
-                    var concreteType = typeof(IWantToHandleEvent<>).MakeGenericType(newInstance);
+                    var concreteType = typeof(IWantToSubscribeThisEvent<>).MakeGenericType(newInstance);
 
                     await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { domainEvent });
                 }

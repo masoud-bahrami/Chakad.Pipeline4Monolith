@@ -14,7 +14,7 @@ namespace Chakad.Pipeline
         /// <typeparam name="T"></typeparam>
         /// <param name="eventHandler"></param>
         /// <param name="myEvent"></param>
-        public static async Task InterestedIn<T>(this IWantToHandleEvent<T> eventHandler, Type type)
+        public static async Task InterestedIn<T>(this IWantToSubscribeThisEvent<T> eventHandler, Type type)
             where T : IDomainEvent
         {
             if (type == null || eventHandler == null)
@@ -32,7 +32,7 @@ namespace Chakad.Pipeline
         /// <typeparam name="T"></typeparam>
         /// <param name="eventHandler"></param>
         /// <param name="myEvent"></param>
-        public static async Task DivorceFrom<T>(this IWantToHandleEvent<T> eventHandler, Type myEvent)
+        public static async Task DivorceFrom<T>(this IWantToSubscribeThisEvent<T> eventHandler, Type myEvent)
             where T : IDomainEvent
         {
             if (myEvent == null || eventHandler == null)

@@ -6,7 +6,7 @@ using Chakad.Pipeline.Core.MessageHandler;
 namespace Chakad.MessageHandler.EventSubscribers
 {
     [TimeToBeReceived("00:00:10")]
-    public class MyEventSubscriber2 : IWantToHandleEvent<MyDomainEvent>
+    public class MyEventSubscriber2 : IWantToSubscribeThisEvent<MyDomainEvent>
     {
         public void Handle(MyDomainEvent domainEvent)
         {
