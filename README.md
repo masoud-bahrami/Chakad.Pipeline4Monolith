@@ -47,10 +47,10 @@ invoke all of them...
 Mr Udi Dahan :) Thank you very much 
 I use some idea behind NServiceBus...
 
-I thank my valuable colleagues at http://BaridSoft.Ir , I have learned some ideas in the resulting section from theirs
+I thank my valuable colleagues at http://BaridSoft.Ir , I have learned some ideas in the resulting section from them.
 
 And I shuld say, the core idea of the Chakad.Pipeline4Monolith is implemented by me and Mahyar(one of my colleagues),
-So I thanks Mahyar a lot.
+Thank you Mahyar.
 
 This is the first version of Chakad.Pipeline4Monolith, and It is under the work for future improvments.
 
