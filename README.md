@@ -28,10 +28,10 @@ Execute()
 ```
 methods, and then return command result to you.
 
-Plus, you can publish event using the Chakad.Pipeline4Monolith,so if ther is any subscriber for this event, Chakad.Pipeline4Monolith
+You can also publish event using Chakad.Pipeline4Monolith,so if there is any subscriber for this event, Chakad.Pipeline4Monolith
 invoke all of them...
 
-1- First of you should configure the Chakad.Pipeline4Monolith
+1- First of you should configure Chakad.Pipeline4Monolith
 ```
             Configure.With("your path");
 ```
@@ -49,9 +49,9 @@ I use some idea behind NServiceBus...
 
 I thank my valuable colleagues at http://BaridSoft.Ir , I have learned some ideas in the resulting section from them.
 
-And I shuld say, the core idea of the Chakad.Pipeline4Monolith is implemented by me and Mahyar(one of my colleagues),
+And I shuld say, the core idea of Chakad.Pipeline4Monolith is implemented by me and Mahyar(one of my colleagues),
 Thank you Mahyar.
 
-This is the first version of Chakad.Pipeline4Monolith, and It is under the work for future improvments.
+This is first version of Chakad.Pipeline4Monolith, and It is under the work for future improvments.
 
 So bu tune...
