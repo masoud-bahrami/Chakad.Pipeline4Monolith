@@ -2,8 +2,8 @@
 {
     public interface IFileLog
     {
-        void Write(string message);
-        void WriteLine(string message);
+        void Write(LogMessageEntry message);
+        void WriteLine(LogMessageEntry message);
         void Flush();
     }
 }

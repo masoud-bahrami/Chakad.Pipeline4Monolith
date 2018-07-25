@@ -1,4 +1,4 @@
-﻿namespace Chakad.Logging
+﻿namespace Chakad.Logging.Core
 {
     /// <summary>
     /// Defines logging severity levels.
@@ -44,5 +44,10 @@
         /// Not used for writing log messages. Specifies that a logging category should not write any messages.
         /// </summary>
         None = 6,
+
+        /// <summary>
+        /// Used for writing log messages anyway. Specifies that a logging category must be write all messages.
+        /// </summary>
+        SystemLog = 1000
     }
 }

@@ -15,12 +15,12 @@ namespace Chakad.Bootstraper
 
         public static void Run()
         {
-            Console.WriteLine("Start Bootstrap Chakad");
+            Console.WriteLine("Start Bootstraping");
             RegisterServices();
             ConfigContainer();
             ConfigChakadPipeline();
             BuildContainer();
-            Console.WriteLine("End Bootstrap Chakad");
+            Console.WriteLine("Bootstraping was finished");
         }
 
         public static void ReorderEvents()
@@ -31,8 +31,12 @@ namespace Chakad.Bootstraper
         #region ~ Private Mathodes ~
         private static void ConfigChakadPipeline()
         {
-            Configure.With(PathHelper.ExecutionPath)
-                   .Order(typeof(MyDomainEvent), ConfigOreders()).SetContainer(_chakavakContainer);
+            Configure.Instance
+                .SetDefaultLoggerFactory()
+                .SetDefaultLoggerProviders()
+                .With(PathHelper.ExecutionPath)
+                .Order(typeof(MyDomainEvent), ConfigOreders())
+                .SetContainer(_chakavakContainer);
         }
         private static void ConfigContainer()
         {

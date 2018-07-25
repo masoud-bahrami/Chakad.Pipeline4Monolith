@@ -56,6 +56,8 @@
     <Compile Include="Exceptions\ChakadMessageViolationPolicyException.cs" />
     <Compile Include="Exceptions\ChakadObjectInitializationFieldException.cs" />
     <Compile Include="Exceptions\ChakadPipelineTimeoutException.cs" />
+    <Compile Include="Internal\CorrelationIdConstants.cs" />
+    <Compile Include="Internal\EventIdConstants.cs" />
     <Compile Include="IQueryPipeline.cs" />
     <Compile Include="MessageHandler\IWantToHandleThisQuery.cs" />
     <Compile Include="Options\ChakadMessageProperty.cs" />
@@ -100,6 +102,10 @@
     <ProjectReference Include="..\..\Core\Chakad.Core.csproj">
       <Project>{AE9C8299-4B7D-4BC4-8B8C-C4046E5D094C}</Project>
       <Name>Chakad.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logging\Core\Chakad.Logging.Core.csproj">
+      <Project>{bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f}</Project>
+      <Name>Chakad.Logging.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

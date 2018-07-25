@@ -1,4 +1,6 @@
 ﻿using Chakad.Core;
+using Chakad.Core;
+using Chakad.Logging.Core.Null;
 using Chakad.Pipeline;
 using Chakad.Pipeline.Core;
 using Chakad.Sample.PhoneBook.Repository;
@@ -44,7 +46,10 @@ namespace Chakad.Samples.PhoneBook.Bootstraper
             var container = new Container();
             container.RegisterRepository(iNeedSampleData);
 
-            Configure.With(ApplicationPath, "chakad")
+            Configure.Instance
+                .SetLoggerFactory(NullLoggerFactory.Instance)
+                .SetLoggerProviders(NullLoggerProvider.Instance)
+                .With(ApplicationPath, "chakad")
                 .SetContainer(container);
 
             Container.Build();

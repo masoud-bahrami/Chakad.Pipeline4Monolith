@@ -61,32 +61,32 @@ namespace Chakad.Console
 
             System.Console.ForegroundColor = ConsoleColor.Blue;
 
-            System.Console.WriteLine("Raise MyDomainevent. It should be received By subscribers in unorder manner");
-            var res1 = Pipeline.Publish(new MyDomainEvent
-            {
-                FirstName = "Mahyar",
-                LastName = "Mehrnoosh"
-            });
+            //System.Console.WriteLine("Raise MyDomainevent. It should be received By subscribers in unorder manner");
+            //var res1 = Pipeline.Publish(new MyDomainEvent
+            //{
+            //    FirstName = "Mahyar",
+            //    LastName = "Mehrnoosh"
+            //});
 
-            PrintBreakeLine(2);
-            System.Console.ForegroundColor = ConsoleColor.DarkGreen;
-            System.Console.WriteLine("Try to set order MyDomainEvent's Subscribers");
-            ChakadBootstraper.ReorderEvents();
+            //PrintBreakeLine(2);
+            //System.Console.ForegroundColor = ConsoleColor.DarkGreen;
+            //System.Console.WriteLine("Try to set order MyDomainEvent's Subscribers");
+            //ChakadBootstraper.ReorderEvents();
 
-            ChakadServiceBus.Pipeline.Publish(new MyDomainEvent
-            {
-                FirstName = "Mahyar",
-                LastName = "Mehrnoosh"
-            });
-            PrintBreakeLine(2);
-            System.Console.ForegroundColor = ConsoleColor.DarkYellow;
-            System.Console.WriteLine("Try to unsubscribe MyDomainEventHandler 0");
-            new MyEventSubscriber().DivorceFrom(typeof(MyDomainEvent));
-            ChakadServiceBus.Pipeline.Publish(new MyDomainEvent
-            {
-                FirstName = "Mahyar",
-                LastName = "Mehrnoosh"
-            });
+            //ChakadServiceBus.Pipeline.Publish(new MyDomainEvent
+            //{
+            //    FirstName = "Mahyar",
+            //    LastName = "Mehrnoosh"
+            //});
+            //PrintBreakeLine(2);
+            //System.Console.ForegroundColor = ConsoleColor.DarkYellow;
+            //System.Console.WriteLine("Try to unsubscribe MyDomainEventHandler 0");
+            //new MyEventSubscriber().DivorceFrom(typeof(MyDomainEvent));
+            //ChakadServiceBus.Pipeline.Publish(new MyDomainEvent
+            //{
+            //    FirstName = "Mahyar",
+            //    LastName = "Mehrnoosh"
+            //});
             
 
             System.Console.ReadKey();

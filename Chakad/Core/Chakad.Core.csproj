@@ -49,6 +49,7 @@
     <Compile Include="ChakadFieldType.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Guard.cs" />
+    <Compile Include="ServiceSpecification.cs" />
     <Compile Include="PathHelper.cs" />
     <Compile Include="TypeHelper.cs" />
     <Compile Include="TypeExtension.cs" />

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5F648C5D-4F5F-4CE0-8257-E7F373EBFB59}</ProjectGuid>
+    <ProjectGuid>{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Chakad.Logging.File</RootNamespace>
-    <AssemblyName>Chakad.Logging.File</AssemblyName>
+    <RootNamespace>Chakad.Logging.Core</RootNamespace>
+    <AssemblyName>Chakad.Logging.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,14 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileLog.cs" />
-    <Compile Include="FileLogger.cs" />
-    <Compile Include="FileLoggerFactoryExtensions.cs" />
-    <Compile Include="FileLoggerProcessorConsumerEngeen.cs" />
-    <Compile Include="FileLoggerProvider.cs" />
-    <Compile Include="FileLoggerSetting.cs" />
-    <Compile Include="IFileLog.cs" />
-    <Compile Include="LogMessageEntry.cs" />
+    <Compile Include="EventId.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ILoggerFactory.cs" />
+    <Compile Include="ILoggerProvider.cs" />
+    <Compile Include="Internal\FormattedLogValues.cs" />
+    <Compile Include="Internal\LogValuesFormatter.cs" />
+    <Compile Include="LogEntry.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="Null\NullLogger.cs" />
+    <Compile Include="Null\NullLoggerProvider.cs" />
+    <Compile Include="Null\NullLoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,15 +59,6 @@
       <Project>{ae9c8299-4b7d-4bc4-8b8c-c4046e5d094c}</Project>
       <Name>Chakad.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core\Chakad.Logging.Core.csproj">
-      <Project>{bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f}</Project>
-      <Name>Chakad.Logging.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>10.0.2</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

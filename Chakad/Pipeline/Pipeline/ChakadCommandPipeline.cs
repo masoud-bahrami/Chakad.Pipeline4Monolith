@@ -11,18 +11,32 @@ using Chakad.Pipeline.Core.Exceptions;
 using Chakad.Pipeline.Core.Message;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Options;
-using Chakad.Pipeline.Core.Query;
+using Chakad.Logging;
 using Polly;
+using Chakad.Logging.Core;
+using Chakad.Pipeline.Core.Internal;
 
 namespace Chakad.Pipeline
 {
     public class ChakadCommandPipeline : ICommandPipeline
     {
+        private readonly string loggerCategoryName = "Chakad.Command.Pipeline";
+        private ILogger Logger
+        {
+            get
+            {
+                return LoggerBuilder.Instance.LoggerFactory.CreateLogger(loggerCategoryName);
+            }
+        }
+
         public async Task Subscribe<T>(IWantToSubscribeThisEvent<T> eventHandler, Type type)
-            where T : IDomainEvent
+                where T : IDomainEvent
         {
             if (type == null || eventHandler == null)
                 return;
+
+            Logger.LogInformation(EventIdConstants.SubscribeToEvent,
+                $"Start Subscribing {eventHandler.GetType().FullName} to {type.FullName} .");
 
             var type1 = eventHandler.GetType();
 
@@ -38,25 +52,40 @@ namespace Chakad.Pipeline
 
             var type1 = eventHandler.GetType();
 
+            Logger.LogInformation(EventIdConstants.UnSubscribeFromEvent,
+                $"Start UnSubscribing {type1.FullName} to {myEvent.FullName} .");
+
             var key = typeof(T);
 
             ChakadContainer.UnRegister(type1, key);
         }
 
         public async Task<TOut> StartProcess<TOut>(IChakadRequest<TOut> command, TimeSpan? timeout = null,
-            Action<Exception, TimeSpan> action = null, SendOptions options = null) 
+            Action<Exception, TimeSpan> action = null, SendOptions options = null)
             where TOut : ChakadResult, new()
         {
             var commandType = command.GetType();
 
+            Logger.LogInformation(EventIdConstants.CommandStartProcess, commandType.FullName, command, "Start Process");
+
+
             var baseType = command.GetType().BaseType;
             if (baseType == null)
-                throw new Exception();
+            {
+                Logger.LogError(EventIdConstants.CommandBaseTypeIsEmpty, command.CorrelationId , $"StartProcess. Correlation_Id is ={command.CorrelationId} Command base type is null.");
+
+                throw new Exception(@"Command base type is null");
+            }
 
             var eventHandler = ChakadContainer.ResolveCommandHandler(commandType);
 
             if (eventHandler == null)
-                throw new ChakadPipelineNotFoundHandler(@"Not found handler for {0}", command);
+            {
+                var exeption = new ChakadPipelineNotFoundHandler(@"Not found handler for {0}", command.CorrelationId);
+
+                Logger.LogError(EventIdConstants.CommandNotFounddHandler, exeption, command.CorrelationId, $"StartProcess. Correlation_Id is ={command.CorrelationId}. Not found handler");
+                throw exeption;
+            }
 
             if (timeout == null)
                 timeout = new TimeSpan(0, 0, 0, 0, 500);
@@ -72,6 +101,7 @@ namespace Chakad.Pipeline
 
             var policy = Policy.Handle<Exception>()
                 .WaitAndRetryAsync(1, retryAttempt => timeout.Value, action);
+            Logger.LogInformation(EventIdConstants.CommandInitializeCircuteBreaker, command.CorrelationId , $"Start Process. Correlation_Id is ={command.CorrelationId}  Set Retry Count equals to 2 in case of any failures in invoking message handler.");
 
             using (var scope = ChakadContainer.Autofac.BeginLifetimeScope(ChakadContainer.AutofacScopeName))
             {
@@ -88,9 +118,15 @@ namespace Chakad.Pipeline
             }
         }
 
-        private async Task<TOut> InvokeMessageHandle<TOut>(IChakadRequest<TOut> command, Type eventHandler, object instance)
+        private async Task<TOut> InvokeMessageHandle<TOut>(IChakadRequest<TOut> command,
+            Type eventHandler,
+            object instance)
             where TOut : ChakadResult, new()
         {
+            Logger.LogInformation(EventIdConstants.CommandStartInvokinMessageHandle,
+                command.CorrelationId ,
+                $"InvokeMessageHandle. Correlation_Id is ={command.CorrelationId} Start Invoking Message Handler.");
+
             var res = (from info in eventHandler.GetMethods()
                        where info.Name.ToLower() == "handle"
                        select info.Invoke(instance, new object[] { command }))
@@ -101,28 +137,44 @@ namespace Chakad.Pipeline
             if (task1 == null) return null;
 
             if (task1.Exception != null)
+            {
+                Logger.LogError(EventIdConstants.CommandInvokingMessageHandleWasFaield, task1.Exception,
+                    command.CorrelationId,
+                    $"InvokeMessageHandle. Correlation_Id is ={command.CorrelationId} Error in Invoking Message Handle.");
+
                 return new TOut
                 {
                     Succeeded = false,
                     AggregatedExceptions = task1.Exception,
                     Message = task1.Exception.GetaAllMessages()
                 };
-
+            }
             var task = await task1;
+
+            Logger.LogInformation(EventIdConstants.CommandInvokingMessageHandleWasSuccessfully,
+                command.CorrelationId ,
+                $"InvokeMessageHandle. Correlation_Id is ={command.CorrelationId} Message Handler invoked successfully.");
+
             return task;
         }
 
         public async Task Publish<T>(T myDomainEvent, SendOptions options)
             where T : IDomainEvent
         {
+            Logger.LogInformation(EventIdConstants.StartPublishingEvent, myDomainEvent.GetType().FullName, myDomainEvent, $"PublishEvent ");
             await Task.Run(() => PublishThisEvent(myDomainEvent));
         }
 
-        private static async Task PublishThisEvent<T>(T domainEvent) where T : IDomainEvent
+        private async Task PublishThisEvent<T>(T domainEvent) where T : IDomainEvent
         {
             var type = domainEvent.GetType();
 
             var eventHandlers = ChakadContainer.ResolveEventSubscribers(type);
+
+            var subscribersCount = eventHandlers != null ? eventHandlers.Count : 0;
+            Logger.LogInformation(EventIdConstants.StartPublishingEvent,
+                domainEvent.CorrelationId ,
+                $"PublishEvent Correlation_Id is ={domainEvent.CorrelationId} . There is {subscribersCount } Subscriber(s) was found!");
 
             var orderOf = OrderConfiger.GetOrderOf(type);
 

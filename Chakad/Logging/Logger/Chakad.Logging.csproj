@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Chakad.Logging</RootNamespace>
     <AssemblyName>Chakad.Logging</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,14 +51,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILoggerFactory.cs" />
-    <Compile Include="ILoggerProvider.cs" />
-    <Compile Include="ILogger.cs" />
-    <Compile Include="LogLevel.cs" />
+    <Compile Include="LoggerExtensions.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LoggerFactory.cs" />
+    <Compile Include="LoggerAggregate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Chakad.Logging.Core.csproj">
+      <Project>{bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f}</Project>
+      <Name>Chakad.Logging.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\File\Chakad.Logging.File.csproj">
+      <Project>{5f648c5d-4f5f-4ce0-8257-e7f373ebfb59}</Project>
+      <Name>Chakad.Logging.File</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

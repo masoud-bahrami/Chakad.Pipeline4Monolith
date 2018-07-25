@@ -1,10 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Chakad.Logging.File
 {
     public class FileLog : IFileLog
     {
         private readonly string _fileAddres;
+        [ThreadStatic]
         readonly object obj = new object();
 
         public FileLog(string fileAddress)
@@ -12,7 +14,7 @@ namespace Chakad.Logging.File
             _fileAddres = fileAddress;
         }
 
-        public void Write(string message)
+        public void Write(LogMessageEntry logMessage)
         {
             lock (obj)
             {
@@ -22,31 +24,45 @@ namespace Chakad.Logging.File
 
                 using (var stream = new StreamWriter(_fileAddres))
                 {
-                    stream.Write(message);
+                    stream.Write(logMessage.Message);
                 }
             }
         }
 
-        public void WriteLine(string message)
+        public void WriteLine(LogMessageEntry logMessage)
         {
             lock (obj)
             {
-                using (var file = System.IO.File.Exists(_fileAddres)
-                    ? System.IO.File.Open(_fileAddres, FileMode.Append)
-                    : System.IO.File.Open(_fileAddres, FileMode.CreateNew))
+                string path = _fileAddres;
 
-                using (var stream = new StreamWriter(_fileAddres))
+                if (!System.IO.File.Exists(path))
                 {
-                    stream.Write(message);
-                    stream.WriteLine();
+                    System.IO.File.Create(path);
                 }
+
+                TextWriter tw = new StreamWriter(path, true, System.Text.Encoding.UTF8);
+                tw.WriteLine(logMessage.LevelString);
+                tw.WriteLine(logMessage.Message);
+                tw.Close();
             }
         }
 
 
         public void Flush()
         {
-            //TODO
+            lock (obj)
+            {
+                string path = _fileAddres;
+
+                if (!System.IO.File.Exists(path))
+                {
+                    System.IO.File.Create(path);
+                }
+
+                TextWriter tw = new StreamWriter(path, false, System.Text.Encoding.UTF8);
+                tw.Write("");
+                tw.Close();
+            }
         }
 
         private bool IsFileLocked(FileInfo file)

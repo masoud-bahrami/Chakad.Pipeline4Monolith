@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Chakad.Logging
+namespace Chakad.Logging.Core
 {
     /// <summary>
     /// Represents a type that can create instances of <see cref="ILogger"/>.

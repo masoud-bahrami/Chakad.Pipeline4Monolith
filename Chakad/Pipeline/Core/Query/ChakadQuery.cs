@@ -1,3 +1,5 @@
+using Chakad.Pipeline.Core.Internal;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -17,6 +19,7 @@ namespace Chakad.Pipeline.Core.Query
     {
         public ChakadQuery()
         {
+            CorrelationId = CorrelationIdConstants.Query;
             Page = new Page
             {
                 Skip = 0,
@@ -32,6 +35,7 @@ namespace Chakad.Pipeline.Core.Query
         public Sort[] Sorts { get; set; }
         public string[] Groups { get; set; }
         public Page Page { get; set; }
+        public string CorrelationId { get; set; }
         #endregion
     }
 

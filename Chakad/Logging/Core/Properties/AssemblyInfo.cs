@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Chakad.Logging.File")]
+[assembly: AssemblyTitle("Chakad.Logging.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Chakad.Logging.File")]
+[assembly: AssemblyProduct("Chakad.Logging.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5f648c5d-4f5f-4ce0-8257-e7f373ebfb59")]
+[assembly: Guid("bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f")]
 
 // Version information for an assembly consists of the following four values:
 //

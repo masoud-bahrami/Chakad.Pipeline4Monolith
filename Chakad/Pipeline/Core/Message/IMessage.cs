@@ -1,4 +1,6 @@
-﻿namespace Chakad.Pipeline.Core.Message
+﻿using System;
+
+namespace Chakad.Pipeline.Core.Message
 {
     /// <summary>
     /// Marker interface to indicate that a class is a message suitable
@@ -7,5 +9,6 @@
     /// </summary>
     public interface IMessage
     {
+        string CorrelationId { get; set; }
     }
 }

@@ -40,6 +40,9 @@
       <HintPath>..\..\..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Polly, Version=5.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Polly.5.3.1\lib\net45\Polly.dll</HintPath>
       <Private>True</Private>
@@ -61,9 +64,11 @@
     <Compile Include="ChakadQueryEngeen.cs" />
     <Compile Include="ChakadServiceBus.cs" />
     <Compile Include="ChakadRequestExtensions.cs" />
+    <Compile Include="ConfigWith.cs" />
     <Compile Include="ConfigureExtensions.cs" />
     <Compile Include="Configure.cs" />
     <Compile Include="ChakadCommandPipeline.cs" />
+    <Compile Include="LoggerExtensions.cs" />
     <Compile Include="OrderConfiger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +84,14 @@
     <ProjectReference Include="..\..\Core\Chakad.Core.csproj">
       <Project>{AE9C8299-4B7D-4BC4-8B8C-C4046E5D094C}</Project>
       <Name>Chakad.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logging\Core\Chakad.Logging.Core.csproj">
+      <Project>{bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f}</Project>
+      <Name>Chakad.Logging.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logging\Logger\Chakad.Logging.csproj">
+      <Project>{94d1725a-5ee2-4f0a-bf34-28faa82ba620}</Project>
+      <Name>Chakad.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core\Chakad.Pipeline.Core.csproj">
       <Project>{275E7E62-DA5F-4128-99C0-CC7BEEA140C1}</Project>

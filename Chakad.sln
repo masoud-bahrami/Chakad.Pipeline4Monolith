@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F05731D9-DA63-42F7-A173-64F905930D3E}"
 EndProject
@@ -77,9 +77,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chakad.Container", "Chakad\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{2EB0BA66-3D55-4552-AB9D-98FA53188D12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chakad.Logging.File", "Chakad\Logging\File\Chakad.Logging.File.csproj", "{FDFF70F7-9E6C-4C90-BC0E-0E63E9C01679}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chakad.Logging", "Chakad\Logging\Logger\Chakad.Logging.csproj", "{94D1725A-5EE2-4F0A-BF34-28FAA82BA620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chakad.Logging.Core", "Chakad\Logging\Core\Chakad.Logging.Core.csproj", "{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chakad.Logging.File", "Chakad\Logging\File\Chakad.Logging.File.csproj", "{5F648C5D-4F5F-4CE0-8257-E7F373EBFB59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,14 +153,18 @@ Global
 		{D6D9D203-AAF0-4C30-A07F-394BBB002129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6D9D203-AAF0-4C30-A07F-394BBB002129}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6D9D203-AAF0-4C30-A07F-394BBB002129}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDFF70F7-9E6C-4C90-BC0E-0E63E9C01679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDFF70F7-9E6C-4C90-BC0E-0E63E9C01679}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDFF70F7-9E6C-4C90-BC0E-0E63E9C01679}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDFF70F7-9E6C-4C90-BC0E-0E63E9C01679}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94D1725A-5EE2-4F0A-BF34-28FAA82BA620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94D1725A-5EE2-4F0A-BF34-28FAA82BA620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94D1725A-5EE2-4F0A-BF34-28FAA82BA620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94D1725A-5EE2-4F0A-BF34-28FAA82BA620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F648C5D-4F5F-4CE0-8257-E7F373EBFB59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F648C5D-4F5F-4CE0-8257-E7F373EBFB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F648C5D-4F5F-4CE0-8257-E7F373EBFB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F648C5D-4F5F-4CE0-8257-E7F373EBFB59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -198,7 +204,11 @@ Global
 		{BEE6B6EE-BF58-4BBB-87EE-47E49CC10DAB} = {35C55DDF-9304-42F5-B860-38AB7A44FED0}
 		{D6D9D203-AAF0-4C30-A07F-394BBB002129} = {BEE6B6EE-BF58-4BBB-87EE-47E49CC10DAB}
 		{2EB0BA66-3D55-4552-AB9D-98FA53188D12} = {35C55DDF-9304-42F5-B860-38AB7A44FED0}
-		{FDFF70F7-9E6C-4C90-BC0E-0E63E9C01679} = {2EB0BA66-3D55-4552-AB9D-98FA53188D12}
 		{94D1725A-5EE2-4F0A-BF34-28FAA82BA620} = {2EB0BA66-3D55-4552-AB9D-98FA53188D12}
+		{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F} = {2EB0BA66-3D55-4552-AB9D-98FA53188D12}
+		{5F648C5D-4F5F-4CE0-8257-E7F373EBFB59} = {2EB0BA66-3D55-4552-AB9D-98FA53188D12}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFDA48D3-BE80-4E76-B46D-1C60AD08AB39}
 	EndGlobalSection
 EndGlobal

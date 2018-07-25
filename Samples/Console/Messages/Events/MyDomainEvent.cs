@@ -2,7 +2,7 @@
 
 namespace Chakad.Messages.Events
 {
-    public class MyDomainEvent :IDomainEvent
+    public class MyDomainEvent : DomainEvent
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

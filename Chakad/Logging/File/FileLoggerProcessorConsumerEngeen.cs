@@ -8,13 +8,14 @@ namespace Chakad.Logging.File
     {
         private const int MaxQueuedMessages = 1024;
 
-        private readonly BlockingCollection<string> _messageQueue =
-            new BlockingCollection<string>(MaxQueuedMessages);
+        private readonly static BlockingCollection<LogMessageEntry> _messageQueue =
+            new BlockingCollection<LogMessageEntry>(MaxQueuedMessages);
 
-        public IFileLog FileLog;
+        public static IFileLog FileLog;
 
-        public FileLoggerProcessorConsumerEngeen()
+        static FileLoggerProcessorConsumerEngeen()
         {
+           
             // Start Console message queue processor
             var outputThread = new Thread(ProcessLogQueue)
             {
@@ -24,7 +25,7 @@ namespace Chakad.Logging.File
             
             outputThread.Start();
         }
-        public virtual void EnqueueMessage(string message)
+        public static void EnqueueMessage(LogMessageEntry message)
         {
             if (!_messageQueue.IsAddingCompleted)
             {
@@ -42,14 +43,12 @@ namespace Chakad.Logging.File
             WriteMessage(message);
         }
         // for testing
-        internal virtual void WriteMessage(string message)
+        internal static void WriteMessage(LogMessageEntry message)
         {
             FileLog.WriteLine(message);
-
-            FileLog.Flush();
         }
 
-        private void ProcessLogQueue()
+        private static void ProcessLogQueue()
         {
             try
             {
@@ -58,7 +57,7 @@ namespace Chakad.Logging.File
                     WriteMessage(message);
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 try
                 {
