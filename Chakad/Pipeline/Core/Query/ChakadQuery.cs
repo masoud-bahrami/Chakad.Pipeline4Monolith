@@ -68,5 +68,15 @@ namespace Chakad.Pipeline.Core.Query
         }
         public FilterVM[] Filters { get; set; }
         public string Logic { get; set; }
+        public string Field { get; set; }
+        public string Operator { get; set; }
+        public string Value { get; set; }
+        public bool HasMultipleCriteria
+        {
+            get
+            {
+                return Filters != null && Filters.Length > 0;
+            }
+        }
     }
 }
