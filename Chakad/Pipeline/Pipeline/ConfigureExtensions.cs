@@ -4,8 +4,9 @@ using System.Linq;
 using Chakad.Container;
 using Chakad.Core;
 using Chakad.Logging;
-using Chakad.Logging.Core;
 using Chakad.Pipeline.Core.Internal;
+using Chakad.Logging.Extensions;
+using Chakad.Logging.Null;
 
 namespace Chakad.Pipeline
 {
@@ -79,52 +80,20 @@ namespace Chakad.Pipeline
             return Configure.Instance;
         }
 
-        public static Configure SetDefaultLoggerProviders(this LoggerBuilder loggerExtensions, string logFileName, Func<string, LogLevel, bool> filter)
+        public static Configure SetDefaultLoggerProviders(this LoggerBuilder loggerExtensions)
         {
-            var provider = FileLoggerFactory.GetFileLogProvider(logFileName, filter);
+            var provider =new  NullLoggerProvider();
 
             loggerExtensions.LoggerFactory.AddProvider(provider);
 
             Logger.LogSystemLog(EventIdConstants.ChakadSetDefaultLoggerProvider,
-                $"Chakad. Set Default Logger Provider with logFileName={logFileName} and filter={filter}");
+                $"Chakad. Set Default NullLoggerProvider as Default Log Provider");
 
             Logger.LogSystemLog(EventIdConstants.ChakadSetDefaultLoggerProvider,
                 $"Chakad. Default logger provider is {provider.GetType().FullName}");
 
             Logger.LogSystemLog(EventIdConstants.ChakadLoggerFactory,
              $"Chakad. Logger Factory. {loggerExtensions.LoggerFactory.GetType().FullName}");
-
-            return Configure.Instance;
-        }
-        public static Configure SetDefaultLoggerProviders(this LoggerBuilder loggerExtensions, Func<string, LogLevel, bool> filter)
-        {
-            var provider = FileLoggerFactory.GetFileLogProvider(filter);
-
-            loggerExtensions.LoggerFactory.AddProvider(provider);
-
-            Logger.LogSystemLog(EventIdConstants.ChakadSetDefaultLoggerProvider,
-                $"Chakad. Set Default Logger Provider with logFileName=null and filter=null");
-
-            Logger.LogSystemLog(EventIdConstants.ChakadSetDefaultLoggerProvider,
-               $"Chakad. Default logger provider is {provider.GetType().FullName}");
-
-            Logger.LogSystemLog(EventIdConstants.ChakadLoggerFactory,
-            $"Chakad. Logger Factory. {loggerExtensions.LoggerFactory.GetType().FullName}");
-            return Configure.Instance;
-        }
-        public static Configure SetDefaultLoggerProviders(this LoggerBuilder loggerExtensions)
-        {
-            var provider = FileLoggerFactory.GetFileLogProvider();
-            loggerExtensions.LoggerFactory.AddProvider(provider);
-
-            Logger.LogSystemLog(EventIdConstants.ChakadSetDefaultLoggerProvider,
-               $"Chakad. Set Default Logger Provider with logFileName=null and filter = null");
-
-            Logger.LogSystemLog(EventIdConstants.ChakadSetDefaultLoggerProvider,
-            $"Chakad. Default logger provider is {provider.GetType().FullName}");
-
-            Logger.LogSystemLog(EventIdConstants.ChakadLoggerFactory,
-                $"Chakad. Logger Factory. {loggerExtensions.LoggerFactory.GetType().FullName}");
 
             return Configure.Instance;
         }

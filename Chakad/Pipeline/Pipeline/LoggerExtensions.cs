@@ -1,5 +1,5 @@
-﻿using Chakad.Logging.Core;
-using Chakad.Logging.Core.Null;
+﻿using Chakad.Logging;
+using Chakad.Logging.Null;
 
 namespace Chakad.Pipeline
 {

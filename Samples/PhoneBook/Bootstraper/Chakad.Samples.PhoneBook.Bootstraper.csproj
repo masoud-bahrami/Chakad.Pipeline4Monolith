@@ -61,10 +61,6 @@
       <Project>{AE9C8299-4B7D-4BC4-8B8C-C4046E5D094C}</Project>
       <Name>Chakad.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Chakad\Logging\Core\Chakad.Logging.Core.csproj">
-      <Project>{bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f}</Project>
-      <Name>Chakad.Logging.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Chakad\Pipeline\Core\Chakad.Pipeline.Core.csproj">
       <Project>{275E7E62-DA5F-4128-99C0-CC7BEEA140C1}</Project>
       <Name>Chakad.Pipeline.Core</Name>

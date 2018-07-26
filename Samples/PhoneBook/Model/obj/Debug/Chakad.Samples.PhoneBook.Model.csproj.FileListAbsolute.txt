@@ -1,9 +1,0 @@
-L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Model\bin\Debug\Chakad.Samples.PhoneBook.Model.dll
-L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Model\bin\Debug\Chakad.Samples.PhoneBook.Model.pdb
-L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Model\obj\Debug\Chakad.Samples.PhoneBook.Model.dll
-L:\Chakad\Chakad.Pipeline4Monolith-master\Chakad.Pipeline4Monolith-master\Samples\PhoneBook\Model\obj\Debug\Chakad.Samples.PhoneBook.Model.pdb
-C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Model\bin\Debug\Chakad.Samples.PhoneBook.Model.dll
-C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Model\bin\Debug\Chakad.Samples.PhoneBook.Model.pdb
-C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Model\obj\Debug\Chakad.Samples.PhoneBook.Model.dll
-C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Model\obj\Debug\Chakad.Samples.PhoneBook.Model.pdb
-C:\Users\3tar\Documents\GitHub\Chakad.Pipeline4Monolith\Samples\PhoneBook\Model\obj\Debug\Chakad.Samples.PhoneBook.Model.csprojResolveAssemblyReference.cache

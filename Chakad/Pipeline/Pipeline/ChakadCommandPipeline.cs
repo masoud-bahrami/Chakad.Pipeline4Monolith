@@ -13,7 +13,7 @@ using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Options;
 using Chakad.Logging;
 using Polly;
-using Chakad.Logging.Core;
+using Chakad.Logging.Extensions;
 using Chakad.Pipeline.Core.Internal;
 
 namespace Chakad.Pipeline

@@ -1,4 +1,4 @@
-﻿using Chakad.Logging.Core;
+﻿using Chakad.Logging;
 using System;
 using System.Collections.Concurrent;
 

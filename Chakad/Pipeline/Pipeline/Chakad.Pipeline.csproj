@@ -85,9 +85,9 @@
       <Project>{AE9C8299-4B7D-4BC4-8B8C-C4046E5D094C}</Project>
       <Name>Chakad.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Logging\Core\Chakad.Logging.Core.csproj">
-      <Project>{bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f}</Project>
-      <Name>Chakad.Logging.Core</Name>
+    <ProjectReference Include="..\..\Logging\Extensions\Chakad.Logging.Extensions.csproj">
+      <Project>{5ec1c573-d65d-42ec-b3b1-4da33c874426}</Project>
+      <Name>Chakad.Logging.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Logging\Logger\Chakad.Logging.csproj">
       <Project>{94d1725a-5ee2-4f0a-bf34-28faa82ba620}</Project>

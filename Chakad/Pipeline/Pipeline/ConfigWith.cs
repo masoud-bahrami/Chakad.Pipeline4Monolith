@@ -4,11 +4,11 @@ using System.Linq;
 using System.Reflection;
 using Chakad.Container;
 using Chakad.Core;
-using Chakad.Logging.Core;
+using Chakad.Logging;
 using Chakad.Pipeline.Core.Event;
 using Chakad.Pipeline.Core.MessageHandler;
 using Chakad.Pipeline.Core.Internal;
-using Chakad.Logging;
+using Chakad.Logging.Extensions;
 
 namespace Chakad.Pipeline
 {

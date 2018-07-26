@@ -1,7 +1,6 @@
-﻿using Chakad.Logging.Core;
+﻿using Chakad.Logging;
 using System;
 using System.Collections.Generic;
-using Chakad.Logging.File;
 
 namespace Chakad.Logging
 {
@@ -56,24 +55,4 @@ namespace Chakad.Logging
         {
         }
     }
-    public class FileLoggerFactory : LoggerFactory
-    {
-        public static ILoggerProvider GetFileLogProvider(Func<string, LogLevel, bool> filter)
-        {
-            return new Chakad.Logging.File.FileLoggerProvider(filter);
-        }
-        public static ILoggerProvider GetFileLogProvider(string logFileName, Func<string, LogLevel, bool> filter)
-        {
-            return new Chakad.Logging.File.FileLoggerProvider(new FileLoggerSetting
-            {
-                FileName = logFileName,
-                Filter = filter
-            });
-        }
-        public static ILoggerProvider GetFileLogProvider()
-        {
-            return new Chakad.Logging.File.FileLoggerProvider((n, l) => true);
-        }
-    }
-
 }

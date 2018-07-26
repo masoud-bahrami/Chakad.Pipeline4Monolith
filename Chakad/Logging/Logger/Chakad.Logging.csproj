@@ -51,23 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoggerExtensions.cs" />
+    <Compile Include="EventId.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ILoggerFactory.cs" />
+    <Compile Include="ILoggerProvider.cs" />
+    <Compile Include="Internal\FormattedLogValues.cs" />
+    <Compile Include="Internal\LogValuesFormatter.cs" />
+    <Compile Include="LogEntry.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LoggerFactory.cs" />
     <Compile Include="LoggerAggregate.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="Null\NullLogger.cs" />
+    <Compile Include="Null\NullLoggerFactory.cs" />
+    <Compile Include="Null\NullLoggerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Chakad.Logging.Core.csproj">
-      <Project>{bba1d9bc-ea3f-4316-a9d6-dde1ee2e5b5f}</Project>
-      <Name>Chakad.Logging.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\File\Chakad.Logging.File.csproj">
-      <Project>{5f648c5d-4f5f-4ce0-8257-e7f373ebfb59}</Project>
-      <Name>Chakad.Logging.File</Name>
+    <ProjectReference Include="..\..\Core\Chakad.Core.csproj">
+      <Project>{ae9c8299-4b7d-4bc4-8b8c-c4046e5d094c}</Project>
+      <Name>Chakad.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

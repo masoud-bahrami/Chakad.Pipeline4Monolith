@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BBA1D9BC-EA3F-4316-A9D6-DDE1EE2E5B5F}</ProjectGuid>
+    <ProjectGuid>{5EC1C573-D65D-42EC-B3B1-4DA33C874426}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Chakad.Logging.Core</RootNamespace>
-    <AssemblyName>Chakad.Logging.Core</AssemblyName>
+    <RootNamespace>Chakad.Logging.Extensions</RootNamespace>
+    <AssemblyName>Chakad.Logging.Extensions</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,12 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoggerExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Chakad.Core.csproj">
-      <Project>{ae9c8299-4b7d-4bc4-8b8c-c4046e5d094c}</Project>
-      <Name>Chakad.Core</Name>
+    <ProjectReference Include="..\Logger\Chakad.Logging.csproj">
+      <Project>{94d1725a-5ee2-4f0a-bf34-28faa82ba620}</Project>
+      <Name>Chakad.Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
